@@ -1,0 +1,105 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+const frontmatter = {
+  title: 'Why Silica Runs at the Speed of Now',
+  description: 'Speed, Performance & Reliability in the Chert Coin Network. Most blockchains make you wait. Silica doesn\'t.',
+  author: 'Silica Network Team',
+  date: 'December 4, 2024',
+  category: 'Performance',
+  readingTime: '6 min read'
+};
+---
+
+<BlogLayout frontmatter={frontmatter}>
+  <p class="text-xl text-silver leading-relaxed mb-8">
+    Most blockchains make you wait. Silica doesn't. Here's how we achieve sub-second finality and million TPS throughput.
+  </p>
+
+  <h2>Alluvium: Data Availability & Batching</h2>
+  <p>
+    Silica separates <strong>data dissemination</strong> from <strong>ordering</strong>. Alluvium provides data availability without imposing a global order:
+  </p>
+  <ul>
+    <li><strong>High-throughput batching:</strong> Nodes create micro-batches of transactions (50-200 per second) and broadcast them as DAG vertices.</li>
+    <li><strong>Data availability:</strong> Each batch is erasure-coded (Reed-Solomon) so any 2/3 of nodes can reconstruct the full data, even if some nodes are slow or offline.</li>
+    <li><strong>Parallel processing:</strong> Batches propagate concurrently across all validators, not sequentially.</li>
+  </ul>
+  <p>Result: the network is always accumulating transactions, not waiting for one block to finish before the next begins.</p>
+
+  <h2>Crystallite: Ordering &amp; Consensus</h2>
+  <p>
+    Once batches are widely available, Crystallite applies deterministic commit rules to produce a <strong>canonical global ordering</strong>.
+    This is the network's ordering source of truth.
+  </p>
+  <ul>
+    <li><strong>Leaderless ordering:</strong> No single proposer dictates order; commit rules select an unambiguous sequence.</li>
+    <li><strong>Deterministic output:</strong> The committed sequence is the only ordering truth (no re-ordering later).</li>
+    <li><strong>Byzantine-resilient:</strong> Safety holds under adversarial behavior; liveness resumes once the network can make progress.</li>
+  </ul>
+
+  <div class="info-box">
+    <h3>Timeline of a Transaction</h3>
+    <ul>
+      <li><strong>T+0ms:</strong> Tx hits a Gateway node</li>
+      <li><strong>T+50ms:</strong> Included in a micro-batch</li>
+      <li><strong>T+150ms:</strong> Batch propagated, erasure-coded</li>
+      <li><strong>T+400ms:</strong> Crystallite produces a committed ordering</li>
+      <li><strong>T+500ms:</strong> The Striation executes in parallel lanes (Striae)</li>
+    </ul>
+    <p><strong>Total:</strong> &lt;500ms from send to lithified finality. No confirmations to babysit.</p>
+  </div>
+
+  <h2>Lithification: Finality</h2>
+  <p>
+    Finality is the irreversible commitment of state once the committed ordering is applied.
+    Lithification is the point of no return.
+  </p>
+  <ul>
+    <li><strong>Irreversible commitment:</strong> Once lithified, transactions do not roll back or reorg.</li>
+    <li><strong>Timing-independent safety:</strong> Safety does not depend on synchronized clocks or fixed timeout schedules.</li>
+    <li><strong>Recovery-friendly:</strong> Finality certificates and anchors make recovery and monitoring straightforward.</li>
+  </ul>
+
+
+  <h2>Performance Numbers</h2>
+
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <h3>1,000,000+ TPS</h3>
+      <p>Peak throughput under optimal conditions with parallel execution</p>
+    </div>
+    <div class="benefit-card">
+      <h3>&lt;500ms Finality</h3>
+      <p>From send to irreversible confirmation</p>
+    </div>
+    <div class="benefit-card">
+      <h3>&lt;$0.01 Fees</h3>
+      <p>Predictable, low cost regardless of congestion</p>
+    </div>
+  </div>
+
+  <h2>Why This Matters for You</h2>
+  <ul>
+    <li><strong>Instant payments:</strong> No more waiting for block confirmations</li>
+    <li><strong>Real-time apps:</strong> Gaming, trading, IoT—all work at internet speed</li>
+    <li><strong>No MEV anxiety:</strong> Deterministic ordering prevents front-running</li>
+    <li><strong>Predictable costs:</strong> Fee model doesn't spike during congestion</li>
+  </ul>
+
+  <div class="cta-section">
+    <h2>Experience the Speed</h2>
+    <p>
+      When you use Chert, transactions feel like sending a message. That's not a marketing slogan—it's the architecture.
+    </p>
+    <p class="conclusion">
+      Sub-second finality. Million TPS capacity. Zero compromises.
+    </p>
+  </div>
+
+  <div class="next-article">
+    <p>
+      <strong>Next in this series:</strong> How Silica Pays You to Just Be Here — Rewards, staking, and passive income.
+    </p>
+  </div>
+</BlogLayout>

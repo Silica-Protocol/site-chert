@@ -1,0 +1,847 @@
+---
+// Chert Coin Homepage - A Glorious, Premium Experience
+// Inspired by Quai's bold aesthetic with sophisticated animations
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="CHERT — The Future of Currency" description="Sub-second finality. Million TPS. Post-quantum security. Mining that matters. Chert is rebuilding currency from the ground up.">
+  
+  <!-- Hero Section - Full Screen Cinematic -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden" id="hero">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 bg-void">
+      <!-- Grid Pattern -->
+      <div class="absolute inset-0 grid-pattern opacity-30"></div>
+      
+      <!-- Animated Orbs -->
+      <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-quantum/10 blur-[150px] animate-pulse-slow"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-silica/10 blur-[120px] animate-pulse-slow" style="animation-delay: 2s;"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-nebula/5 blur-[180px] animate-pulse-slow" style="animation-delay: 4s;"></div>
+      
+      <!-- Particle Canvas -->
+      <canvas id="hero-particles" class="absolute inset-0 w-full h-full opacity-40"></canvas>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-12 pt-32 pb-20">
+      <div class="text-center">
+        <!-- Animated Logo - Enhanced -->
+        <div class="flex justify-center mb-16 animate-fade-in-up">
+          <div class="relative">
+            <!-- Glow effect behind logo -->
+            <div class="absolute inset-0 bg-gradient-to-br from-quantum/30 to-aurora/30 blur-3xl rounded-full scale-110"></div>
+            <!-- Logo with enhanced size -->
+            <!--
+              Prefer pregenerated animation (perf): WebP → APNG → SVG.
+              If animated assets are not present yet, the SVG remains a safe fallback.
+            -->
+            <picture class="relative block w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 motion-reduce:hidden">
+              <img
+                src="/logo-animated-lite.svg"
+                alt="Chert Logo"
+                class="w-full h-full drop-shadow-2xl"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </picture>
+
+            <!-- Reduced-motion fallback: static raster (no animation) -->
+            <img
+              src="/generated/logo-static-512.png"
+              alt="Chert Logo"
+              class="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 drop-shadow-2xl motion-safe:hidden"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+
+        <!-- Pre-headline -->
+        <div class="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2 mb-8 animate-fade-in-up" style="animation-delay: 0.1s;">
+          <span class="w-2 h-2 rounded-full bg-aurora animate-ping"></span>
+          <span class="text-sm font-medium text-silver tracking-wide">NETWORK LIVE — 999,847 TPS</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight mb-8 animate-fade-in-up" style="animation-delay: 0.2s;">
+          <span class="block text-snow">REBUILDING</span>
+          <span class="block gradient-text">CURRENCY</span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="max-w-2xl mx-auto text-lg md:text-xl text-silver leading-relaxed mb-12 animate-fade-in-up" style="animation-delay: 0.4s;">
+          Sub-second finality. Million TPS throughput. Post-quantum security.
+          <br class="hidden md:block" />
+          <span class="text-pearl">The blockchain of tomorrow, today.</span>
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up" style="animation-delay: 0.6s;">
+          <a href="/launch" class="btn-quantum btn-premium group">
+            <span>Launch App</span>
+            <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+          <a href="/docs" class="btn-ghost btn-premium">
+            Documentation
+          </a>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="animate-bounce mt-8">
+          <svg class="w-6 h-6 mx-auto text-silver" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Stats Bar -->
+    <div class="absolute bottom-0 left-0 right-0 border-t border-white/5 bg-void/80 backdrop-blur-xl animate-fade-in-up" style="animation-delay: 0.8s;">
+      <div class="max-w-[1600px] mx-auto px-6 lg:px-12 py-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="text-2xl md:text-3xl font-display font-bold text-quantum" id="stat-tps">999,847</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-1">TPS</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl md:text-3xl font-display font-bold text-aurora" id="stat-finality">0.94s</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-1">Finality</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl md:text-3xl font-display font-bold text-silica-bright" id="stat-validators">12,847</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-1">Validators</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl md:text-3xl font-display font-bold text-nebula-bright" id="stat-uptime">99.97%</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-1">Uptime</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Showcase - Dramatic Split Section -->
+  <section class="relative py-32 bg-obsidian overflow-hidden" id="technology">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 grid-pattern opacity-20"></div>
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-quantum/5 blur-[150px]"></div>
+    
+    <div class="relative max-w-[1600px] mx-auto px-6 lg:px-12">
+      <!-- Section Header -->
+      <div class="text-center mb-24">
+        <span class="text-quantum font-display text-sm font-semibold tracking-widest uppercase">Technology</span>
+        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-snow mt-4 mb-6">
+          Your Transaction,
+          <span class="gradient-text">in Under One Second</span>
+        </h2>
+        <p class="max-w-2xl mx-auto text-silver text-lg">
+          Hit send → see <span class="text-snow">pending</span> almost instantly → watch it apply to your account → then get cryptographic permanence.
+          Under the hood, Chert moves your transaction through Alluvium, Crystallite, Stalation, and Lithification.
+        </p>
+      </div>
+
+      <!-- Architecture Diagram - Animated Flow -->
+      <div class="relative mb-24">
+        <!-- Connection Lines (Desktop) - positioned behind cards -->
+        <div class="hidden lg:block absolute top-1/2 left-0 right-0 -translate-y-1/2 z-0">
+          <div class="max-w-5xl mx-auto px-16">
+            <div class="h-px bg-gradient-to-r from-silica via-quantum to-nebula opacity-30"></div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
+          <!-- Alluvium (Data Availability & Batching) -->
+          <div class="group">
+            <div class="glass rounded-2xl p-8 h-full transition-all duration-500 hover:border-silica/30 hover:shadow-[0_0_60px_rgba(59,130,246,0.15)]">
+              <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-silica to-silica-glow flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-8 h-8 text-snow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+              </div>
+              <h3 class="font-display text-2xl font-bold text-snow mb-2">Alluvium</h3>
+              <p class="text-sm text-silica-bright mb-4 font-mono uppercase tracking-wider">Data Availability & Batching</p>
+              <p class="text-silver leading-relaxed mb-6">
+                Your transaction is grouped into a micro-batch and broadcast across the network immediately.
+                Alluvium is the “ship it everywhere fast” layer that makes <span class="text-snow">instant pending</span> possible.
+              </p>
+              <ul class="space-y-3 text-sm text-silver">
+                <li class="flex items-center">
+                  <span class="w-1.5 h-1.5 rounded-full bg-silica mr-3"></span>
+                  Fast propagation for pending
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1.5 h-1.5 rounded-full bg-silica mr-3"></span>
+                  DAG micro-batch flow
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1.5 h-1.5 rounded-full bg-silica mr-3"></span>
+                  Erasure coding for availability
+                </li>
+              </ul>
+            </div>
+            <!-- Arrow indicator (mobile: down, desktop: right) -->
+            <div class="flex justify-center mt-6 lg:hidden">
+              <div class="w-10 h-10 rounded-full bg-void border border-white/10 flex items-center justify-center">
+                <svg class="w-4 h-4 text-quantum" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Crystallite (Ordering & Consensus) -->
+          <div class="group">
+            <div class="glass rounded-2xl p-8 h-full transition-all duration-500 hover:border-quantum/30 hover:shadow-[0_0_60px_rgba(251,191,36,0.15)]">
+              <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-quantum to-quantum-glow flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-8 h-8 text-void" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <h3 class="font-display text-2xl font-bold text-snow mb-2">Crystallite</h3>
+              <p class="text-sm text-quantum mb-4 font-mono uppercase tracking-wider">Ordering & Consensus</p>
+              <p class="text-silver leading-relaxed mb-6">
+                Crystallite sorts and commits Alluvium batches into a shared history—often in <span class="text-snow">&lt; 300ms</span>.
+                That commit point is what wallets use to show your transfer as <span class="text-snow">pending</span> right away.
+                Then Stalation executes the ordered results so balances and state updates hit your account fast.
+              </p>
+              <ul class="space-y-3 text-sm text-silver">
+                <li class="flex items-center">
+                  <span class="w-1.5 h-1.5 rounded-full bg-quantum mr-3"></span>
+                   Instant pending via commit
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1.5 h-1.5 rounded-full bg-quantum mr-3"></span>
+                   Canonical ordering proofs
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1.5 h-1.5 rounded-full bg-quantum mr-3"></span>
+                   Keeps working under stress
+                </li>
+              </ul>
+            </div>
+            <!-- Arrow indicator (mobile only) -->
+            <div class="flex justify-center mt-6 lg:hidden">
+              <div class="w-10 h-10 rounded-full bg-void border border-white/10 flex items-center justify-center">
+                <svg class="w-4 h-4 text-quantum" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lithification (Finality) -->
+          <div class="group">
+            <div class="glass rounded-2xl p-8 h-full transition-all duration-500 hover:border-nebula/30 hover:shadow-[0_0_60px_rgba(168,85,247,0.15)]">
+              <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-nebula to-nebula-bright flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-8 h-8 text-snow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+              </div>
+               <h3 class="font-display text-2xl font-bold text-snow mb-2">Lithification</h3>
+               <p class="text-sm text-nebula-bright mb-4 font-mono uppercase tracking-wider">Finality</p>
+              <p class="text-silver leading-relaxed mb-6">
+                 Lithification is the point of no return.
+                 An <span class="text-snow">aBFT committee</span> finalizes the network state so your transaction becomes permanent—typically <span class="text-snow">under 1s</span> end-to-end.
+              </p>
+              <ul class="space-y-3 text-sm text-silver">
+                <li class="flex items-center">
+                  <span class="w-1.5 h-1.5 rounded-full bg-nebula mr-3"></span>
+                  aBFT committee finality
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1.5 h-1.5 rounded-full bg-nebula mr-3"></span>
+                  Predictable under latency
+                </li>
+                <li class="flex items-center">
+                  <span class="w-1.5 h-1.5 rounded-full bg-nebula mr-3"></span>
+                  Post-quantum proofs
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flow Arrows Between Cards (Desktop Only) -->
+        <div class="hidden lg:flex absolute top-1/2 left-0 right-0 -translate-y-1/2 z-20 pointer-events-none">
+          <div class="max-w-5xl mx-auto w-full flex justify-around px-8">
+            <!-- Arrow 1: Alluvium → Crystallite -->
+            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-obsidian border border-white/10 shadow-lg">
+              <svg class="w-5 h-5 text-quantum" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </div>
+            <!-- Arrow 2: Crystallite → Lithification -->
+            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-obsidian border border-white/10 shadow-lg">
+              <svg class="w-5 h-5 text-quantum" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Learn More Link -->
+      <div class="text-center">
+        <a href="/technology" class="inline-flex items-center text-quantum font-display font-semibold hover:text-quantum-bright transition-colors">
+          <span>Deep dive into our technology</span>
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance Section - Dramatic Numbers -->
+  <section class="relative py-32 bg-void overflow-hidden" id="performance">
+    <!-- Background -->
+    <div class="absolute inset-0">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-quantum/5 blur-[200px] rounded-full"></div>
+    </div>
+
+    <div class="relative max-w-[1600px] mx-auto px-6 lg:px-12">
+      <!-- Section Header -->
+      <div class="text-center mb-24">
+        <span class="text-quantum font-display text-sm font-semibold tracking-widest uppercase">Performance</span>
+        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-snow mt-4 mb-6">
+          Numbers That
+          <span class="gradient-text">Speak</span>
+        </h2>
+      </div>
+
+      <!-- Giant Numbers Display -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 mb-24">
+        <!-- TPS -->
+        <div class="relative group">
+          <div class="absolute inset-0 bg-gradient-to-r from-quantum/20 to-transparent blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+          <div class="relative glass-light rounded-3xl p-12 text-center">
+            <div class="font-display text-7xl md:text-8xl lg:text-9xl font-bold text-snow mb-4">
+              <span class="text-quantum">1M+</span>
+            </div>
+            <div class="font-display text-2xl text-silver mb-4">Transactions Per Second</div>
+            <p class="text-silver/70 max-w-md mx-auto">
+              Multi-shard parallel execution with cross-shard coordination achieves unprecedented throughput.
+            </p>
+          </div>
+        </div>
+
+        <!-- Finality -->
+        <div class="relative group">
+          <div class="absolute inset-0 bg-gradient-to-r from-aurora/20 to-transparent blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+          <div class="relative glass-light rounded-3xl p-12 text-center">
+            <div class="font-display text-7xl md:text-8xl lg:text-9xl font-bold text-snow mb-4">
+              <span class="text-aurora">&lt;1s</span>
+            </div>
+            <div class="font-display text-2xl text-silver mb-4">Time to Finality</div>
+               <p class="text-silver/70 max-w-md mx-auto">
+               Pending in ~0.5s, then executed into your account and finalized in under 1s.
+             </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison Table -->
+      <div class="glass rounded-3xl p-8 md:p-12 overflow-x-auto">
+        <h3 class="font-display text-2xl font-bold text-snow mb-8 text-center">How We Compare</h3>
+        <table class="w-full min-w-[600px]">
+          <thead>
+            <tr class="border-b border-white/10">
+              <th class="text-left py-4 px-4 text-silver font-display font-medium">Metric</th>
+              <th class="text-center py-4 px-4 font-display font-bold text-quantum">CHERT</th>
+              <th class="text-center py-4 px-4 text-silver font-display font-medium">Solana</th>
+              <th class="text-center py-4 px-4 text-silver font-display font-medium">Ethereum</th>
+              <th class="text-center py-4 px-4 text-silver font-display font-medium">Bitcoin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-white/5">
+              <td class="py-4 px-4 text-silver">Throughput</td>
+              <td class="py-4 px-4 text-center font-mono text-quantum font-semibold">1M+ TPS</td>
+              <td class="py-4 px-4 text-center font-mono text-silver">65K TPS</td>
+              <td class="py-4 px-4 text-center font-mono text-silver">15 TPS</td>
+              <td class="py-4 px-4 text-center font-mono text-silver">7 TPS</td>
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="py-4 px-4 text-silver">Finality</td>
+              <td class="py-4 px-4 text-center font-mono text-aurora font-semibold">0.8-1.5s</td>
+              <td class="py-4 px-4 text-center font-mono text-silver">~2.5s</td>
+              <td class="py-4 px-4 text-center font-mono text-silver">~6 min</td>
+              <td class="py-4 px-4 text-center font-mono text-silver">~60 min</td>
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="py-4 px-4 text-silver">Security</td>
+              <td class="py-4 px-4 text-center font-mono text-nebula-bright font-semibold">Post-Quantum</td>
+              <td class="py-4 px-4 text-center font-mono text-silver">Ed25519</td>
+              <td class="py-4 px-4 text-center font-mono text-silver">ECDSA</td>
+              <td class="py-4 px-4 text-center font-mono text-silver">ECDSA</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-4 text-silver">Energy Use</td>
+              <td class="py-4 px-4 text-center font-mono text-aurora font-semibold">Useful Work</td>
+              <td class="py-4 px-4 text-center font-mono text-silver">PoH/PoS</td>
+              <td class="py-4 px-4 text-center font-mono text-silver">PoS</td>
+              <td class="py-4 px-4 text-center font-mono text-silver">PoW (Waste)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof of Useful Work Section -->
+  <section class="relative py-32 bg-obsidian overflow-hidden" id="nuw">
+    <!-- Background -->
+    <div class="absolute inset-0 grid-pattern opacity-20"></div>
+    <div class="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-aurora/10 blur-[150px]"></div>
+
+    <div class="relative max-w-[1600px] mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- Content -->
+        <div>
+          <span class="text-aurora font-display text-sm font-semibold tracking-widest uppercase">Network Utility Work</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-snow mt-4 mb-6">
+            Mining That
+            <span class="text-aurora">Matters</span>
+          </h2>
+          <p class="text-lg text-silver leading-relaxed mb-8">
+            Traditional mining wastes energy on meaningless puzzles. Chert's Network Utility Work (NUW) directs computational power toward real scientific research.
+          </p>
+
+          <div class="space-y-6 mb-8">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-aurora/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-aurora" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-display font-semibold text-snow mb-1">Scientific Research</h4>
+                <p class="text-silver text-sm">BOINC & Folding@Home integration for medical and climate research</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-aurora/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-aurora" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-display font-semibold text-snow mb-1">Fraud-Proof Validation</h4>
+                <p class="text-silver text-sm">Challenge windows and redundant agreement ensure honest computation</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-aurora/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-aurora" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-display font-semibold text-snow mb-1">Reward Multipliers</h4>
+                <p class="text-silver text-sm">Earn more for contributing to high-priority research projects</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="/mining" class="btn-quantum btn-premium inline-flex">
+            Start Contributing
+          </a>
+        </div>
+
+        <!-- Visual -->
+        <div class="relative">
+          <div class="glass rounded-3xl p-8 lg:p-12">
+            <div class="text-center mb-8">
+              <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-aurora to-aurora-bright mb-4">
+                <svg class="w-10 h-10 text-void" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <h3 class="font-display text-2xl font-bold text-snow">Global Impact</h3>
+            </div>
+
+            <div class="grid grid-cols-2 gap-6">
+              <div class="text-center p-4 bg-white/5 rounded-xl">
+                <div class="text-3xl font-display font-bold text-aurora mb-1">2.4M+</div>
+                <div class="text-xs text-silver">Research Tasks</div>
+              </div>
+              <div class="text-center p-4 bg-white/5 rounded-xl">
+                <div class="text-3xl font-display font-bold text-aurora mb-1">847</div>
+                <div class="text-xs text-silver">Active Projects</div>
+              </div>
+              <div class="text-center p-4 bg-white/5 rounded-xl">
+                <div class="text-3xl font-display font-bold text-aurora mb-1">12.4K</div>
+                <div class="text-xs text-silver">NUW Miners</div>
+              </div>
+              <div class="text-center p-4 bg-white/5 rounded-xl">
+                <div class="text-3xl font-display font-bold text-aurora mb-1">$2.1M</div>
+                <div class="text-xs text-silver">Rewards Paid</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Section -->
+  <section class="relative py-32 bg-void overflow-hidden" id="security">
+    <div class="absolute inset-0">
+      <div class="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-nebula/10 blur-[150px]"></div>
+    </div>
+
+    <div class="relative max-w-[1600px] mx-auto px-6 lg:px-12">
+      <!-- Section Header -->
+      <div class="text-center mb-24">
+        <span class="text-nebula-bright font-display text-sm font-semibold tracking-widest uppercase">Security</span>
+        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-snow mt-4 mb-6">
+          Built for
+          <span class="text-nebula-bright">Tomorrow</span>
+        </h2>
+        <p class="max-w-2xl mx-auto text-silver text-lg">
+          Post-quantum cryptography protects your assets against future quantum computing threats.
+        </p>
+      </div>
+
+      <!-- Security Features Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="glass rounded-2xl p-6 text-center hover:border-nebula/30 transition-all duration-300">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-nebula to-nebula-bright flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-snow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+          </div>
+          <h4 class="font-display font-semibold text-snow mb-2">Dilithium-2</h4>
+          <p class="text-silver text-sm">NIST-approved post-quantum signatures</p>
+        </div>
+
+        <div class="glass rounded-2xl p-6 text-center hover:border-nebula/30 transition-all duration-300">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-nebula to-nebula-bright flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-snow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+          </div>
+          <h4 class="font-display font-semibold text-snow mb-2">VRF Selection</h4>
+          <p class="text-silver text-sm">Cryptographically fair validator rotation</p>
+        </div>
+
+        <div class="glass rounded-2xl p-6 text-center hover:border-nebula/30 transition-all duration-300">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-nebula to-nebula-bright flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-snow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h4 class="font-display font-semibold text-snow mb-2">Hybrid Crypto</h4>
+          <p class="text-silver text-sm">Smooth transition from classical to quantum-safe</p>
+        </div>
+
+        <div class="glass rounded-2xl p-6 text-center hover:border-nebula/30 transition-all duration-300">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-nebula to-nebula-bright flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-snow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+          </div>
+          <h4 class="font-display font-semibold text-snow mb-2">Upgradeable</h4>
+          <p class="text-silver text-sm">Future-proof without hard forks</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ecosystem Section -->
+  <section class="relative py-32 bg-obsidian overflow-hidden" id="ecosystem">
+    <div class="absolute inset-0 grid-pattern opacity-20"></div>
+    <div class="absolute top-1/2 left-0 w-[400px] h-[400px] bg-silica/10 blur-[120px]"></div>
+    <div class="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-quantum/10 blur-[120px]"></div>
+
+    <div class="relative max-w-[1600px] mx-auto px-6 lg:px-12">
+      <!-- Section Header -->
+      <div class="text-center mb-24">
+        <span class="text-silica-bright font-display text-sm font-semibold tracking-widest uppercase">Ecosystem</span>
+        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-snow mt-4 mb-6">
+          What Can You
+          <span class="gradient-text">Build?</span>
+        </h2>
+      </div>
+
+      <!-- Scrolling Use Cases -->
+      <div class="overflow-hidden mb-16">
+        <div class="flex animate-scroll space-x-6">
+          <div class="flex-shrink-0 px-8 py-4 bg-white/5 rounded-full border border-white/10">
+            <span class="font-display font-semibold text-snow">PAYMENTS</span>
+          </div>
+          <div class="flex-shrink-0 px-8 py-4 bg-white/5 rounded-full border border-white/10">
+            <span class="font-display font-semibold text-snow">DEFI</span>
+          </div>
+          <div class="flex-shrink-0 px-8 py-4 bg-white/5 rounded-full border border-white/10">
+            <span class="font-display font-semibold text-snow">GAMING</span>
+          </div>
+          <div class="flex-shrink-0 px-8 py-4 bg-white/5 rounded-full border border-white/10">
+            <span class="font-display font-semibold text-snow">NFTs</span>
+          </div>
+          <div class="flex-shrink-0 px-8 py-4 bg-white/5 rounded-full border border-white/10">
+            <span class="font-display font-semibold text-snow">SOCIAL</span>
+          </div>
+          <div class="flex-shrink-0 px-8 py-4 bg-white/5 rounded-full border border-white/10">
+            <span class="font-display font-semibold text-snow">METAVERSE</span>
+          </div>
+          <div class="flex-shrink-0 px-8 py-4 bg-white/5 rounded-full border border-white/10">
+            <span class="font-display font-semibold text-snow">IDENTITY</span>
+          </div>
+          <div class="flex-shrink-0 px-8 py-4 bg-white/5 rounded-full border border-white/10">
+            <span class="font-display font-semibold text-snow">DAOs</span>
+          </div>
+          <!-- Duplicate for seamless loop -->
+          <div class="flex-shrink-0 px-8 py-4 bg-white/5 rounded-full border border-white/10">
+            <span class="font-display font-semibold text-snow">PAYMENTS</span>
+          </div>
+          <div class="flex-shrink-0 px-8 py-4 bg-white/5 rounded-full border border-white/10">
+            <span class="font-display font-semibold text-snow">DEFI</span>
+          </div>
+          <div class="flex-shrink-0 px-8 py-4 bg-white/5 rounded-full border border-white/10">
+            <span class="font-display font-semibold text-snow">GAMING</span>
+          </div>
+          <div class="flex-shrink-0 px-8 py-4 bg-white/5 rounded-full border border-white/10">
+            <span class="font-display font-semibold text-snow">NFTs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Developer Resources -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="/docs" class="group glass rounded-2xl p-8 hover:border-silica/30 transition-all duration-300">
+          <div class="flex items-center justify-between mb-6">
+            <div class="w-12 h-12 rounded-xl bg-silica/20 flex items-center justify-center">
+              <svg class="w-6 h-6 text-silica-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+            </div>
+            <svg class="w-5 h-5 text-silver group-hover:text-silica-bright group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-snow mb-2">Documentation</h3>
+          <p class="text-silver text-sm">Comprehensive guides, tutorials, and API references to get you started.</p>
+        </a>
+
+        <a href="https://github.com/chertcoin" class="group glass rounded-2xl p-8 hover:border-quantum/30 transition-all duration-300">
+          <div class="flex items-center justify-between mb-6">
+            <div class="w-12 h-12 rounded-xl bg-quantum/20 flex items-center justify-center">
+              <svg class="w-6 h-6 text-quantum" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </div>
+            <svg class="w-5 h-5 text-silver group-hover:text-quantum group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-snow mb-2">Source Code</h3>
+          <p class="text-silver text-sm">All open-source. Fork it, build on it, contribute to it.</p>
+        </a>
+
+        <a href="/faucet" class="group glass rounded-2xl p-8 hover:border-aurora/30 transition-all duration-300">
+          <div class="flex items-center justify-between mb-6">
+            <div class="w-12 h-12 rounded-xl bg-aurora/20 flex items-center justify-center">
+              <svg class="w-6 h-6 text-aurora" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+              </svg>
+            </div>
+            <svg class="w-5 h-5 text-silver group-hover:text-aurora group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl font-bold text-snow mb-2">Testnet Faucet</h3>
+          <p class="text-silver text-sm">Get testnet tokens to experiment and build your applications.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="relative py-32 bg-void overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] bg-gradient-to-r from-quantum/10 via-silica/10 to-nebula/10 blur-[150px] rounded-full"></div>
+    </div>
+
+    <div class="relative max-w-4xl mx-auto px-6 lg:px-12 text-center">
+      <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-snow mb-6">
+        The Future Is
+        <span class="gradient-text">Now</span>
+      </h2>
+      <p class="text-xl text-silver leading-relaxed mb-12">
+        Join the revolution. Build the future. Experience blockchain as it was meant to be.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/launch" class="btn-quantum btn-premium text-lg px-12 py-4">
+          Launch App
+        </a>
+        <a href="/wallet" class="btn-ghost btn-premium text-lg px-12 py-4">
+          Get Wallet
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<!-- Additional Styles -->
+<style>
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 20s linear infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+</style>
+
+<!-- Hero Particles Script -->
+<script>
+  // Simple particle animation for hero section
+  const canvas = document.getElementById('hero-particles') as HTMLCanvasElement;
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    interface Particle {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      size: number;
+      opacity: number;
+    }
+
+    const particles: Particle[] = [];
+    const particleCount = 50;
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        size: Math.random() * 2 + 1,
+        opacity: Math.random() * 0.5 + 0.2
+      });
+    }
+
+    function animate() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((particle, i) => {
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+
+        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(251, 191, 36, ${particle.opacity})`;
+        ctx.fill();
+
+        // Connect nearby particles
+        particles.forEach((other, j) => {
+          if (i === j) return;
+          const dx = particle.x - other.x;
+          const dy = particle.y - other.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 150) {
+            ctx.beginPath();
+            ctx.moveTo(particle.x, particle.y);
+            ctx.lineTo(other.x, other.y);
+            ctx.strokeStyle = `rgba(251, 191, 36, ${0.1 * (1 - dist / 150)})`;
+            ctx.stroke();
+          }
+        });
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  }
+
+  // Animate stats
+  function animateValue(element: HTMLElement | null, start: number, end: number, duration: number, suffix: string = '') {
+    if (!element) return;
+    let startTimestamp: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const current = Math.floor(progress * (end - start) + start);
+      element.textContent = current.toLocaleString() + suffix;
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+
+  // Intersection Observer for animations
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-fade-in-up');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+  });
+</script>

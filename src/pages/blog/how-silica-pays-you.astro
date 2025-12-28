@@ -1,0 +1,132 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+const frontmatter = {
+  title: 'How Silica Pays You to Just Be Here',
+  description: 'Rewards, staking, and participation in the Chert Coin network. No menus, no validator shopping, no anxiety.',
+  author: 'Silica Network Team',
+  date: 'December 4, 2024',
+  category: 'Rewards',
+  readingTime: '6 min read'
+};
+---
+
+<BlogLayout frontmatter={frontmatter}>
+  <p class="text-xl text-silver leading-relaxed mb-8">
+    Most staking systems are complicated. Silica makes earning rewards as simple as holding coins.
+  </p>
+
+  <h2>Auto-Staking: Earn by Default</h2>
+  <p>
+    Every CHERT balance automatically participates in staking. No bonding transactions, no lockup periods, no complex delegation menus.
+  </p>
+  <ul>
+    <li><strong>Passive income:</strong> Your wallet balance earns 5-7% APY just by existing</li>
+    <li><strong>Always liquid:</strong> Spend or transfer anytime—no unbonding delays</li>
+    <li><strong>No slashing risk:</strong> Regular holders can't be slashed; only operators who run validators take on that risk</li>
+  </ul>
+
+  <h2>How Rewards Work</h2>
+
+  <div class="tech-details">
+    <h3>Base Reward Formula</h3>
+    <pre><code>reward_i = base_rate × balance_i × time_held × participation_factor</code></pre>
+    <p>Rewards compound automatically. The longer you hold, the more you earn—no manual claiming required.</p>
+  </div>
+
+  <h2>LockBox: Optional Boost</h2>
+  <p>
+    Want higher returns? Opt into a LockBox for guaranteed enhanced APY:
+  </p>
+
+  <div class="comparison-table">
+    <h3>LockBox Tiers</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Lock Period</th>
+          <th>Multiplier</th>
+          <th>Early Exit Penalty</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 month</td>
+          <td>1.15x</td>
+          <td>Declining from 15%</td>
+        </tr>
+        <tr>
+          <td>3 months</td>
+          <td>1.35x</td>
+          <td>Declining from 25%</td>
+        </tr>
+        <tr>
+          <td>6 months</td>
+          <td>1.60x</td>
+          <td>Declining from 35%</td>
+        </tr>
+        <tr class="highlight">
+          <td>12 months</td>
+          <td>2.00x</td>
+          <td>Declining from 50%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Early exit penalties decline linearly, so if you need liquidity mid-term, you keep most of your enhanced rewards.</p>
+
+  <h2>Gateway Bonuses</h2>
+  <p>
+    Run a lightweight Gateway node at home and earn extra:
+  </p>
+  <ul>
+    <li><strong>Transaction relay rewards:</strong> Small fee share for forwarding transactions</li>
+    <li><strong>Uptime bonuses:</strong> Consistent availability earns reputation and higher rewards</li>
+    <li><strong>Low requirements:</strong> A modest home machine (4 cores, 8GB RAM) is sufficient</li>
+  </ul>
+
+  <div class="info-box">
+    <h3>Gateway vs. Full Validator</h3>
+    <ul>
+      <li><strong>Gateway:</strong> Light node, no slashing risk, moderate rewards, anyone can run</li>
+      <li><strong>Full Validator:</strong> Heavy node, slashing risk, higher rewards, requires stake and infrastructure</li>
+    </ul>
+  </div>
+
+  <h2>Geographic Proof of Distribution Bonuses</h2>
+  <p>
+    Silica rewards geographic and infrastructure diversity:
+  </p>
+  <ul>
+    <li><strong>Underserved regions:</strong> Nodes in areas with fewer validators earn higher rewards</li>
+    <li><strong>Independent infrastructure:</strong> Running on diverse cloud providers or home connections is rewarded</li>
+    <li><strong>Decentralization incentives:</strong> The network actively pays for resilience</li>
+  </ul>
+
+  <h2>No Hidden Complexity</h2>
+  <p>
+    Rewards are transparent and predictable:
+  </p>
+  <ul>
+    <li><strong>On-chain visibility:</strong> Check your accrued rewards anytime</li>
+    <li><strong>No validator shopping:</strong> You don't need to pick the "right" validator—all participation is aggregated</li>
+    <li><strong>No compounding anxiety:</strong> Rewards auto-compound; no manual re-staking needed</li>
+  </ul>
+
+  <div class="cta-section">
+    <h2>Start Earning Today</h2>
+    <p>
+      Just hold CHERT. That's it. Rewards start accruing immediately. Want more? Lock up for a boost or run a Gateway.
+    </p>
+    <p class="conclusion">
+      Staking should be simple. Silica makes it invisible.
+    </p>
+  </div>
+
+  <div class="next-article">
+    <p>
+      <strong>Next in this series:</strong> Inside the Silica Engine — How the network achieves instant finality and massive scale.
+    </p>
+  </div>
+</BlogLayout>

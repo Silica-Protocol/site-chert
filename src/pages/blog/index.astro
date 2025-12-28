@@ -1,0 +1,284 @@
+---
+// Chert Blog Index Page - Premium Dark Theme
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Blog — Chert Coin" description="Latest news, updates, and insights about Chert Coin - blockchain innovation, performance breakthroughs, and community achievements">
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-20 overflow-hidden">
+    <div class="absolute inset-0 grid-pattern opacity-30"></div>
+    <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-quantum/10 rounded-full blur-[150px]"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-silica/10 rounded-full blur-[120px]"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center">
+        <span class="inline-block text-quantum font-display text-sm tracking-[0.3em] uppercase mb-4">Insights</span>
+        <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-snow mb-6">
+          Chert <span class="bg-gradient-to-r from-quantum to-quantum-bright bg-clip-text text-transparent">Blog</span>
+        </h1>
+        <p class="text-xl text-silver max-w-2xl mx-auto">
+          Latest news, technical deep-dives, and community stories from the Chert ecosystem
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Article -->
+  <section class="relative py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <a href="/blog/welcome-to-chert" class="group block">
+        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-quantum/20 via-obsidian to-silica/20 p-[1px]">
+          <div class="relative rounded-3xl bg-obsidian p-8 lg:p-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-quantum/10 text-quantum border border-quantum/20 mb-6">
+                  Featured
+                </span>
+                <h2 class="font-display text-3xl lg:text-4xl font-bold text-snow mb-4 group-hover:text-quantum transition-colors">
+                  Meet Chert Coin on the Silica Network
+                </h2>
+                <p class="text-silver text-lg mb-6 leading-relaxed">
+                  Fast. Tiny fees. Green by design. Rewards just for being here. Crypto should feel like sending a message: instant, cheap, and simple.
+                </p>
+                <div class="flex items-center gap-6 text-sm text-ash mb-6">
+                  <span>December 4, 2024</span>
+                  <span>•</span>
+                  <span>5 min read</span>
+                </div>
+                <span class="inline-flex items-center gap-2 text-quantum font-semibold group-hover:gap-3 transition-all">
+                  Read Article
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                  </svg>
+                </span>
+              </div>
+              <div class="relative">
+                <div class="absolute -inset-4 bg-gradient-to-r from-quantum/20 to-silica/20 rounded-2xl blur-xl opacity-50"></div>
+                <div class="relative glass rounded-2xl p-8 text-center">
+                  <div class="text-6xl font-bold text-quantum mb-2">1M+</div>
+                  <div class="text-lg text-silver">Transactions Per Second</div>
+                  <div class="text-sm text-ash mt-2">Sub-second Finality</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Latest Articles Grid -->
+  <section class="relative py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="flex items-center justify-between mb-12">
+        <h2 class="font-display text-3xl font-bold text-snow">Latest Articles</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Article 1 -->
+        <a href="/blog/speed-performance-reliability" class="group">
+          <article class="glass rounded-2xl p-6 h-full hover:border-quantum/30 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-silica/10 text-silica-bright border border-silica/20">
+                Performance
+              </span>
+              <span class="text-xs text-ash">6 min read</span>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-snow mb-3 group-hover:text-quantum transition-colors">
+              Why Silica Runs at the Speed of Now
+            </h3>
+            <p class="text-silver text-sm mb-4 leading-relaxed">
+              Speed, Performance & Reliability in the Chert Coin Network. Most blockchains make you wait. Silica doesn't.
+            </p>
+            <div class="flex items-center justify-between text-xs text-ash">
+              <span>December 4, 2024</span>
+              <span class="text-quantum group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </article>
+        </a>
+
+        <!-- Article 2 -->
+        <a href="/blog/how-silica-pays-you" class="group">
+          <article class="glass rounded-2xl p-6 h-full hover:border-quantum/30 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-aurora/10 text-aurora-bright border border-aurora/20">
+                Rewards
+              </span>
+              <span class="text-xs text-ash">6 min read</span>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-snow mb-3 group-hover:text-quantum transition-colors">
+              How Silica Pays You to Just Be Here
+            </h3>
+            <p class="text-silver text-sm mb-4 leading-relaxed">
+              Rewards, staking, and participation in the Chert Coin network. No menus, no validator shopping, no anxiety.
+            </p>
+            <div class="flex items-center justify-between text-xs text-ash">
+              <span>December 4, 2024</span>
+              <span class="text-quantum group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </article>
+        </a>
+
+        <!-- Article 3 -->
+        <a href="/blog/inside-silica-engine" class="group">
+          <article class="glass rounded-2xl p-6 h-full hover:border-quantum/30 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-nebula/10 text-nebula-bright border border-nebula/20">
+                Technology
+              </span>
+              <span class="text-xs text-ash">7 min read</span>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-snow mb-3 group-hover:text-quantum transition-colors">
+              Inside the Silica Engine
+            </h3>
+            <p class="text-silver text-sm mb-4 leading-relaxed">
+              How the network achieves massive scale and lithified finality. A technical look at Alluvium batching and Crystallite ordering.
+            </p>
+            <div class="flex items-center justify-between text-xs text-ash">
+              <span>December 4, 2024</span>
+              <span class="text-quantum group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </article>
+        </a>
+
+        <!-- Article 4 -->
+        <a href="/blog/mining-that-matters" class="group">
+          <article class="glass rounded-2xl p-6 h-full hover:border-quantum/30 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-aurora/10 text-aurora-bright border border-aurora/20">
+                Sustainability
+              </span>
+              <span class="text-xs text-ash">5 min read</span>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-snow mb-3 group-hover:text-quantum transition-colors">
+              Mining That Matters
+            </h3>
+            <p class="text-silver text-sm mb-4 leading-relaxed">
+              How Silica makes blockchain green and socially useful. Proof of Useful Work turns energy waste into progress.
+            </p>
+            <div class="flex items-center justify-between text-xs text-ash">
+              <span>December 4, 2024</span>
+              <span class="text-quantum group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </article>
+        </a>
+
+        <!-- Article 5 -->
+        <a href="/blog/built-for-tomorrow" class="group">
+          <article class="glass rounded-2xl p-6 h-full hover:border-quantum/30 transition-all duration-300 hover:-translate-y-1">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-quantum/10 text-quantum border border-quantum/20">
+                Security
+              </span>
+              <span class="text-xs text-ash">6 min read</span>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-snow mb-3 group-hover:text-quantum transition-colors">
+              Built for Tomorrow
+            </h3>
+            <p class="text-silver text-sm mb-4 leading-relaxed">
+              Silica's Security Model and Post-Quantum Resilience. Designed with quantum-secure cryptography from the ground up.
+            </p>
+            <div class="flex items-center justify-between text-xs text-ash">
+              <span>December 4, 2024</span>
+              <span class="text-quantum group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </article>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="relative py-20 bg-obsidian/50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-snow mb-4">
+          Explore by Category
+        </h2>
+        <p class="text-silver max-w-xl mx-auto">
+          Find articles on topics that interest you most
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Performance Category -->
+        <div class="group relative overflow-hidden rounded-2xl p-[1px] bg-gradient-to-br from-silica/50 to-transparent hover:from-silica hover:to-silica/50 transition-all duration-500">
+          <div class="relative rounded-2xl bg-obsidian p-8 h-full">
+            <div class="w-14 h-14 rounded-xl bg-silica/10 flex items-center justify-center mb-6 group-hover:bg-silica/20 transition-colors">
+              <svg class="w-7 h-7 text-silica-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-snow mb-3">Performance</h3>
+            <p class="text-silver text-sm mb-6">
+              Articles about Chert's speed, scalability, and technical innovations
+            </p>
+            <span class="text-silica-bright text-sm font-medium group-hover:text-snow transition-colors">
+              3 articles →
+            </span>
+          </div>
+        </div>
+
+        <!-- Sustainability Category -->
+        <div class="group relative overflow-hidden rounded-2xl p-[1px] bg-gradient-to-br from-aurora/50 to-transparent hover:from-aurora hover:to-aurora/50 transition-all duration-500">
+          <div class="relative rounded-2xl bg-obsidian p-8 h-full">
+            <div class="w-14 h-14 rounded-xl bg-aurora/10 flex items-center justify-center mb-6 group-hover:bg-aurora/20 transition-colors">
+              <svg class="w-7 h-7 text-aurora-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-snow mb-3">Science & Sustainability</h3>
+            <p class="text-silver text-sm mb-6">
+              How Chert contributes to real scientific breakthroughs through Proof of Useful Work
+            </p>
+            <span class="text-aurora-bright text-sm font-medium group-hover:text-snow transition-colors">
+              2 articles →
+            </span>
+          </div>
+        </div>
+
+        <!-- Security Category -->
+        <div class="group relative overflow-hidden rounded-2xl p-[1px] bg-gradient-to-br from-quantum/50 to-transparent hover:from-quantum hover:to-quantum/50 transition-all duration-500">
+          <div class="relative rounded-2xl bg-obsidian p-8 h-full">
+            <div class="w-14 h-14 rounded-xl bg-quantum/10 flex items-center justify-center mb-6 group-hover:bg-quantum/20 transition-colors">
+              <svg class="w-7 h-7 text-quantum" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold text-snow mb-3">Security & Future-Proofing</h3>
+            <p class="text-silver text-sm mb-6">
+              Post-quantum cryptography and long-term security architecture
+            </p>
+            <span class="text-quantum text-sm font-medium group-hover:text-snow transition-colors">
+              2 articles →
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter CTA -->
+  <section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-quantum/20 via-silica/10 to-quantum/20 blur-[100px] rounded-full"></div>
+    </div>
+    
+    <div class="relative max-w-3xl mx-auto px-6 lg:px-12 text-center">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-snow mb-6">
+        Stay Updated
+      </h2>
+      <p class="text-silver text-lg mb-10">
+        Subscribe to our newsletter for the latest news, technical updates, and community stories.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://twitter.com/ChertCoin" class="btn-premium btn-quantum">
+          Follow on X
+        </a>
+        <a href="https://discord.gg/chert" class="btn-premium btn-ghost">
+          Join Discord
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,181 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+const frontmatter = {
+  title: 'Inside the Silica Engine',
+  description: 'How the network achieves lithified finality and massive scale. A technical look at Alluvium batching, Crystallite ordering, and the Striation execution pipeline.',
+  author: 'Silica Network Team',
+  date: 'December 4, 2024',
+  category: 'Technology',
+  readingTime: '7 min read'
+};
+---
+
+<BlogLayout frontmatter={frontmatter}>
+  <p class="text-xl text-silver leading-relaxed mb-8">
+    Silica isn't just fast—it's architecturally different. Here's a technical deep-dive into the engine that powers sub-second finality.
+  </p>
+
+  <h2>The Three-Layer Architecture</h2>
+  <p>
+    Silica separates concerns into distinct layers:
+  </p>
+
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <h3>Alluvium</h3>
+      <p>Data availability &amp; batching — high-throughput transaction dissemination (unordered)</p>
+    </div>
+    <div class="benefit-card">
+      <h3>Crystallite</h3>
+      <p>Ordering &amp; consensus — deterministic commit rules produce canonical ordering</p>
+    </div>
+    <div class="benefit-card">
+      <h3>The Striation</h3>
+      <p>Parallel execution framework — deterministic state transitions across Striae</p>
+    </div>
+  </div>
+
+  <h2>Alluvium: Data Availability &amp; Batching</h2>
+  <p>
+    Alluvium solves data availability before ordering even begins:
+  </p>
+
+  <div class="tech-details">
+    <h3>DAG Structure</h3>
+    <pre><code>struct Certificate {'{'}
+    round: u64,
+    author: ValidatorId,
+    transactions: Vec&lt;Transaction&gt;,
+    parents: Vec&lt;CertificateHash&gt;,  // References to previous round
+    signature: AggregateSignature,
+{'}'}</code></pre>
+    <p>Each validator creates certificates referencing certificates from the previous round, forming a directed acyclic graph.</p>
+  </div>
+
+  <ul>
+    <li><strong>Parallel propagation:</strong> All validators broadcast simultaneously, not sequentially</li>
+    <li><strong>Erasure coding:</strong> Reed-Solomon encoding ensures any 2f+1 nodes can reconstruct data</li>
+    <li><strong>Causal ordering:</strong> DAG structure naturally captures happened-before relationships</li>
+  </ul>
+
+  <h2>Crystallite: Ordering &amp; Consensus</h2>
+  <p>
+    Once batches are widely available, Crystallite commits a canonical global ordering:
+  </p>
+
+  <div class="tech-details">
+    <h3>Deterministic Commit Rules</h3>
+    <pre><code>// Crystallite commit logic (conceptual)
+fn commit(dag: &amp;Dag) -&gt; Vec&lt;CommittedSubDag&gt; {'{'}
+    // Structural rules select a canonical order from available DAG vertices.
+    // Output is deterministic across honest replicas.
+    linearize(dag)
+{'}'}</code></pre>
+    <p>Commit rules produce a canonical ordering sequence without relying on a single leader to dictate order.</p>
+  </div>
+
+  <ul>
+    <li><strong>Leaderless ordering:</strong> Commit rules select an unambiguous sequence</li>
+    <li><strong>Canonical output:</strong> The committed sequence is the ordering source of truth</li>
+    <li><strong>Byzantine-resilient:</strong> Safety holds under adversarial behavior; liveness resumes when the network can make progress</li>
+  </ul>
+
+  <h2>The Striation: Deterministic Execution</h2>
+  <p>
+    After ordering, The Striation executes transactions across parallel lanes (Striae):
+  </p>
+  <ul>
+    <li><strong>WASM runtime:</strong> Sandboxed, metered execution of smart contracts</li>
+    <li><strong>Parallel execution:</strong> Non-conflicting transactions execute concurrently</li>
+    <li><strong>Merkle state:</strong> Efficient state proofs for light clients</li>
+  </ul>
+
+  <div class="tech-details">
+    <h3>Execution Pipeline</h3>
+    <pre><code>fn execute_block(block: OrderedBlock) -&gt; StateRoot {'{'}
+    let schedule = analyze_dependencies(&amp;block.transactions);
+    let results = parallel_execute(schedule);
+    update_merkle_tree(results)
+{'}'}</code></pre>
+    <p>Dependency analysis enables safe parallel execution without conflicts.</p>
+  </div>
+
+  <h2>Lithification: Finality</h2>
+  <p>
+    Lithification is the irreversible commitment of state once the committed ordering is applied.
+    It converts an ordered history into an immutable ledger.
+  </p>
+  <ul>
+    <li><strong>Irreversible state:</strong> Once lithified, history is not rolled back or reorganized</li>
+    <li><strong>Certificates as proofs:</strong> Finality certificates are cryptographic proofs for monitoring and auditing, not gates</li>
+    <li><strong>Recovery support:</strong> Lineations provide checkpoint anchors for fast sync and safe pruning</li>
+  </ul>
+
+  <h2>Lineations: Periodic Anchors</h2>
+  <p>
+    Every ~10 minutes, the network creates a lineation (a periodic chain anchor):
+  </p>
+  <ul>
+    <li><strong>State snapshot:</strong> Full Merkle root of all account states</li>
+    <li><strong>Validator set update:</strong> New validator weights take effect</li>
+    <li><strong>Pruning point:</strong> Historical data before this can be safely archived</li>
+  </ul>
+
+  <div class="info-box">
+    <h3>Why Lineations Matter</h3>
+    <p>
+      Light clients can sync from any lineation, not from genesis. New nodes bootstrap in minutes, not days.
+    </p>
+  </div>
+
+  <h2>Performance Characteristics</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Value</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Peak TPS</td>
+        <td>1,000,000+</td>
+        <td>With parallel execution</td>
+      </tr>
+      <tr>
+        <td>Finality</td>
+        <td>&lt;500ms</td>
+        <td>Optimistic path</td>
+      </tr>
+      <tr>
+        <td>Validator Set Size</td>
+        <td>100-200</td>
+        <td>Per consensus round</td>
+      </tr>
+      <tr>
+        <td>Lineation Interval</td>
+        <td>~10 min</td>
+        <td>State checkpoints</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cta-section">
+    <h2>Built Different</h2>
+    <p>
+      Silica's architecture isn't an incremental improvement—it's a fundamental rethinking of how blockchains can work.
+    </p>
+    <p class="conclusion">
+      Separation of concerns. Parallel everything. Instant finality.
+    </p>
+  </div>
+
+  <div class="next-article">
+    <p>
+      <strong>Next in this series:</strong> Mining That Matters — How Silica makes blockchain green and socially useful.
+    </p>
+  </div>
+</BlogLayout>

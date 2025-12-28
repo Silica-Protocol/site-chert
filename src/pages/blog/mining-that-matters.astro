@@ -1,0 +1,121 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+const frontmatter = {
+  title: 'Mining That Matters',
+  description: 'How Silica makes blockchain green and socially useful. Proof of Useful Work turns energy waste into scientific progress.',
+  author: 'Silica Network Team',
+  date: 'December 4, 2024',
+  category: 'Sustainability',
+  readingTime: '5 min read'
+};
+---
+
+<BlogLayout frontmatter={frontmatter}>
+  <p class="text-xl text-silver leading-relaxed mb-8">
+    Most "mining" burns energy to solve useless puzzles. Silica flips that—every joule of compute contributes to real science.
+  </p>
+
+  <h2>The Problem with Traditional Mining</h2>
+  <p>
+    Bitcoin's proof of work is brilliant cryptography but terrible resource allocation:
+  </p>
+  <ul>
+    <li><strong>Wasted compute:</strong> Trillions of hashes computed and immediately discarded</li>
+    <li><strong>Energy consumption:</strong> More electricity than many countries</li>
+    <li><strong>No useful output:</strong> The only product is network security</li>
+  </ul>
+  <p>
+    What if that compute did something valuable?
+  </p>
+
+  <h2>Proof of Useful Work (PoUW)</h2>
+  <p>
+    Silica miners contribute to real distributed computing projects:
+  </p>
+  <ul>
+    <li><strong>BOINC integration:</strong> Scientific computing projects (protein folding, climate modeling, etc.)</li>
+    <li><strong>AI/ML training:</strong> Model training and inference tasks</li>
+    <li><strong>Data analytics:</strong> Large-scale data processing jobs</li>
+  </ul>
+
+  <div class="tech-details">
+    <h3>Work Submission Flow</h3>
+    <pre><code>async fn execute_useful_work(&amp;mut self) -&gt; Result&lt;WorkResult&gt;;
+async fn submit_work_proof(&amp;self, work: WorkResult) -&gt; Result&lt;ProofSubmission&gt;;</code></pre>
+    <p>Nodes submit Merkle proofs of completed tasks, which are verified and anchored into lineations (periodic chain anchors).</p>
+  </div>
+
+  <h2>Power-Optimized Network</h2>
+  <p>
+    Silica is designed so that every joule of energy counts:
+  </p>
+  <ul>
+    <li><strong>Low-resource validators:</strong> Home nodes can participate as Gateways or DAS samplers without datacenter hardware</li>
+    <li><strong>Efficient pipeline:</strong> Alluvium + Crystallite + Lithification minimizes CPU and bandwidth compared to heavy PoW systems</li>
+    <li><strong>Dual-purpose energy:</strong> Security and computation happen together, not in competition</li>
+  </ul>
+
+  <h2>Incentive Balance</h2>
+  <p>
+    To keep the system fair and efficient:
+  </p>
+  <ul>
+    <li><strong>Project multipliers:</strong> Certain research projects can earn bonus rewards if voted by governance</li>
+    <li><strong>Anti-gaming checks:</strong> Verifiers and oracles ensure submitted work is genuine, not fake or recycled</li>
+    <li><strong>Scheduler boosts:</strong> Consistent contributors may receive priority and rewards</li>
+  </ul>
+
+  <div class="info-box">
+    <h3>Comprehensive Verification</h3>
+    <ul>
+      <li><strong>Validator Population Synthesis:</strong> Realistic stake distributions and geographic clustering</li>
+      <li><strong>Adversarial Scenario Modeling:</strong> Byzantine fractions, equivocation, withholding attacks</li>
+      <li><strong>Validator Selection Validation:</strong> Gini coefficient analysis, proposer fairness metrics</li>
+      <li><strong>Geographic Distribution Testing:</strong> H3 cell coverage and sybil resistance validation</li>
+    </ul>
+  </div>
+
+  <h2>Why This Matters</h2>
+
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <h3>For the Environment</h3>
+      <p>No wasted hashing—energy goes to useful computation</p>
+    </div>
+    <div class="benefit-card">
+      <h3>For Society</h3>
+      <p>Every node helps advance real science or AI</p>
+    </div>
+    <div class="benefit-card">
+      <h3>For Users</h3>
+      <p>Earn rewards knowing your energy matters</p>
+    </div>
+  </div>
+
+  <h2>Getting Started</h2>
+  <p>
+    Running a useful work node is straightforward:
+  </p>
+  <ol>
+    <li><strong>Install the miner:</strong> Download and configure the Chert miner</li>
+    <li><strong>Select projects:</strong> Choose which scientific projects to contribute to</li>
+    <li><strong>Start earning:</strong> Completed work units translate directly to CHERT rewards</li>
+  </ol>
+
+  <div class="cta-section">
+    <h2>Mine with Purpose</h2>
+    <p>
+      Silica proves blockchain doesn't have to be wasteful—it can be a force for progress.
+    </p>
+    <p class="conclusion">
+      Green mining. Real science. Meaningful rewards.
+    </p>
+  </div>
+
+  <div class="next-article">
+    <p>
+      <strong>Next in this series:</strong> Built for Tomorrow — Silica's security model and post-quantum resilience.
+    </p>
+  </div>
+</BlogLayout>
