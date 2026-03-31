@@ -13,7 +13,7 @@ const frontmatter = {
 
 <BlogLayout frontmatter={frontmatter}>
   <p class="text-xl text-silver leading-relaxed mb-8">
-    Silica isn't just fast—it's architecturally different. Here's a technical deep-dive into the engine that powers sub-second finality.
+    Silica isn’t just fast—it’s architecturally different. Here’s a technical deep-dive into the engine designed for fast finality and high throughput.
   </p>
 
   <h2>The Layered Architecture</h2>
@@ -160,18 +160,18 @@ fn commit(dag: &amp;Dag) -&gt; Vec&lt;CommittedSubDag&gt; {'{'}
     <tbody>
       <tr>
         <td>Peak TPS</td>
-        <td>1,000,000+</td>
-        <td>With parallel execution</td>
+        <td>Target: high throughput</td>
+        <td>With parallel execution — benchmarks pending</td>
       </tr>
       <tr>
         <td>Finality</td>
-        <td>&lt;500ms</td>
-        <td>Optimistic path</td>
+        <td>Target: fast settlement</td>
+        <td>Optimistic path — measured numbers pending</td>
       </tr>
       <tr>
         <td>Validator Set Size</td>
-        <td>100-200</td>
-        <td>Per consensus round</td>
+        <td>Target: 100-200</td>
+        <td>Per consensus round — design target</td>
       </tr>
       <tr>
         <td>Lineation Interval</td>

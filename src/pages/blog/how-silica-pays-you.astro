@@ -3,7 +3,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
 
 const frontmatter = {
   title: 'How Silica Pays You to Just Be Here',
-  description: 'Rewards, staking, and participation in the Chert Coin network. No menus, no validator shopping, no anxiety.',
+  description: 'Rewards, staking, and participation in the Chert network. No menus, no validator shopping, no anxiety.',
   author: 'Silica Network Team',
   date: 'December 4, 2024',
   category: 'Rewards',
@@ -18,63 +18,28 @@ const frontmatter = {
 
   <h2>Auto-Staking: Earn by Default</h2>
   <p>
-    Every CHERT balance automatically participates in staking. No bonding transactions, no lockup periods, no complex delegation menus.
+    The design goal is for every CHERT balance to participate in staking automatically. No bonding transactions, no lockup periods, no complex delegation menus.
   </p>
   <ul>
-    <li><strong>Passive income:</strong> Your wallet balance earns 5-7% APY just by existing</li>
+    <li><strong>Passive participation:</strong> The intention is that your wallet balance earns rewards by default—exact rates will be published when the reward model is finalized and live</li>
     <li><strong>Always liquid:</strong> Spend or transfer anytime—no unbonding delays</li>
-    <li><strong>No slashing risk:</strong> Regular holders can't be slashed; only operators who run validators take on that risk</li>
+    <li><strong>No slashing risk for holders:</strong> Regular holders are not slashed; only operators who run validators take on that risk</li>
   </ul>
 
   <h2>How Rewards Work</h2>
 
   <div class="tech-details">
-    <h3>Base Reward Formula</h3>
-    <pre><code>reward_i = base_rate × balance_i × time_held × participation_factor</code></pre>
-    <p>Rewards compound automatically. The longer you hold, the more you earn—no manual claiming required.</p>
+    <h3>Reward Design Intent</h3>
+    <p>Rewards are designed to compound automatically based on balance, time held, and participation level. The exact formula and parameters will be published when the reward model is finalized. No manual claiming should be required.</p>
   </div>
 
-  <h2>LockBox: Optional Boost</h2>
+  <h2>LockBox: Optional Boost (Planned)</h2>
   <p>
-    Want higher returns? Opt into a LockBox for guaranteed enhanced APY:
+    The design includes an optional LockBox mechanism where you can lock tokens for a period to earn enhanced rewards. Longer lock periods are intended to earn higher multipliers, with early exit penalties that decline over time.
   </p>
-
-  <div class="comparison-table">
-    <h3>LockBox Tiers</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Lock Period</th>
-          <th>Multiplier</th>
-          <th>Early Exit Penalty</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1 month</td>
-          <td>1.15x</td>
-          <td>Declining from 15%</td>
-        </tr>
-        <tr>
-          <td>3 months</td>
-          <td>1.35x</td>
-          <td>Declining from 25%</td>
-        </tr>
-        <tr>
-          <td>6 months</td>
-          <td>1.60x</td>
-          <td>Declining from 35%</td>
-        </tr>
-        <tr class="highlight">
-          <td>12 months</td>
-          <td>2.00x</td>
-          <td>Declining from 50%</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <p>Early exit penalties decline linearly, so if you need liquidity mid-term, you keep most of your enhanced rewards.</p>
+  <p>
+    Specific tiers, multipliers, and penalty schedules will be published when the reward model is finalized and live. The design goal is to keep this simple and fair while rewarding commitment.
+  </p>
 
   <h2>Gateway Bonuses</h2>
   <p>
@@ -115,18 +80,18 @@ const frontmatter = {
   </ul>
 
   <div class="cta-section">
-    <h2>Start Earning Today</h2>
+    <h2>Simple by Design</h2>
     <p>
-      Just hold CHERT. That's it. Rewards start accruing immediately. Want more? Lock up for a boost or run a Gateway.
+      The goal is straightforward: hold CHERT, participate automatically. When rewards go live, they should accrue without menus or manual steps.
     </p>
     <p class="conclusion">
-      Staking should be simple. Silica makes it invisible.
+      Staking should be simple. That is the design target.
     </p>
   </div>
 
   <div class="next-article">
     <p>
-      <strong>Next in this series:</strong> Inside the Silica Engine — How the network achieves instant finality and massive scale.
+      <strong>Next in this series:</strong> Inside the Silica Engine — How the network is designed for fast finality and high throughput.
     </p>
   </div>
 </BlogLayout>

@@ -1,11 +1,76 @@
 ---
-// Chert Ecosystem Page - Network Utility Work & Partners
 import Layout from '../layouts/Layout.astro';
+
+const participationFlow = [
+  {
+    step: '1',
+    title: 'Choose a path',
+    description: 'Use the wallet, follow activity in the explorer, or learn how meaningful participation works.'
+  },
+  {
+    step: '2',
+    title: 'Understand the model',
+    description: 'Silica uses Proof of Useful Work (PoUW), and different useful-work programs sit inside that broader system.'
+  },
+  {
+    step: '3',
+    title: 'Track rollout honestly',
+    description: 'Program status belongs on roadmap, health, and protocol surfaces—not inside invented dashboard counters.'
+  }
+];
+
+const workloadCards = [
+  {
+    label: 'PoUW class',
+    title: 'NUW',
+    description: 'Network Utility Work is one category of participation inside PoUW. It is not the parent mechanism name.'
+  },
+  {
+    label: 'Workload category',
+    title: 'BOINC-backed workloads',
+    description: 'A useful-work family the protocol can support as public programs and verification surfaces are rolled out.'
+  },
+  {
+    label: 'Workload category',
+    title: 'Folding@Home workloads',
+    description: 'Another useful-work family that fits the PoUW model when program availability and validation rules are published.'
+  },
+  {
+    label: 'Future category',
+    title: 'Additional scientific and AI tasks',
+    description: 'Other validated public-value workloads can live here over time, but they should be labeled clearly as live, planned, or research.'
+  }
+];
+
+const surfaceCards = [
+  {
+    title: 'Wallet',
+    description: 'The fastest path into the user-facing Chert experience.',
+    href: 'https://wallet.chert.cash',
+    label: 'Open wallet'
+  },
+  {
+    title: 'Explorer',
+    description: 'Track transfers, addresses, and activity from the Chert-facing explorer surface.',
+    href: 'https://explorer.chert.cash',
+    label: 'Open explorer'
+  },
+  {
+    title: 'Protocol docs',
+    description: 'Need APIs, SDKs, contracts, or node detail? That belongs on Silica Protocol.',
+    href: 'https://silicaprotocol.network/developers',
+    label: 'Go to docs'
+  },
+  {
+    title: 'API health',
+    description: 'Use the real health endpoint when you want current network status rather than placeholder metrics.',
+    href: 'https://api.silicaprotocol.network/health',
+    label: 'View health'
+  }
+];
 ---
 
-<Layout title="Ecosystem — CHERT" description="Explore the Chert ecosystem: Network Utility Work, scientific computing partnerships, developer tools, and more.">
-  
-  <!-- Hero -->
+<Layout title="Ecosystem — Chert" description="Explore the Chert ecosystem: wallet and explorer access, useful-work participation categories, and the route into Silica Protocol for deeper developer and operator surfaces.">
   <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-24">
     <div class="absolute inset-0 bg-void">
       <div class="absolute inset-0 grid-pattern opacity-20"></div>
@@ -16,277 +81,102 @@ import Layout from '../layouts/Layout.astro';
     <div class="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-12 py-20 text-center">
       <span class="text-silica-bright font-display text-sm font-semibold tracking-widest uppercase">Ecosystem</span>
       <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-snow mt-4 mb-6">
-        Mining with
-        <span class="gradient-text">Purpose</span>
+        Wallets, explorers, and
+        <span class="gradient-text">participation that means something</span>
       </h1>
       <p class="max-w-3xl mx-auto text-xl text-silver leading-relaxed">
-        Every hash contributes to real scientific research. Medical breakthroughs. Climate solutions. 
-        The future, computed.
+        The Chert ecosystem is not just a token page. It is the place to route users into the wallet, the explorer, and a plain-English explanation of useful-work participation.
       </p>
     </div>
   </section>
 
-  <!-- Network Utility Work -->
-  <section class="py-32 bg-obsidian relative overflow-hidden" id="nuw">
+  <section class="py-32 bg-obsidian relative overflow-hidden" id="participation">
     <div class="absolute inset-0 grid-pattern opacity-10"></div>
-    
-    <div class="relative max-w-[1600px] mx-auto px-6 lg:px-12">
-      <!-- Header -->
-      <div class="text-center mb-20">
-        <span class="text-quantum font-display text-sm font-semibold tracking-widest uppercase">Network Utility Work</span>
-        <h2 class="font-display text-3xl md:text-5xl font-bold text-snow mt-4 mb-6">
-          Proof of Useful Work
-        </h2>
-        <p class="max-w-2xl mx-auto text-silver text-lg">
-          Transform blockchain energy consumption into meaningful computation. 
-          Every watt powers scientific discovery.
-        </p>
-      </div>
 
-      <!-- How it Works -->
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-20">
-        <div class="glass rounded-2xl p-6 text-center">
-          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-silica to-silica-glow flex items-center justify-center">
-            <span class="font-display text-2xl font-bold text-snow">1</span>
-          </div>
-          <h3 class="font-display text-lg font-bold text-snow mb-3">Submit Work</h3>
-          <p class="text-silver text-sm">Miners request work units from approved scientific projects.</p>
-        </div>
-
-        <div class="glass rounded-2xl p-6 text-center">
-          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-silica to-silica-glow flex items-center justify-center">
-            <span class="font-display text-2xl font-bold text-snow">2</span>
-          </div>
-          <h3 class="font-display text-lg font-bold text-snow mb-3">Compute</h3>
-          <p class="text-silver text-sm">GPU/CPU resources process protein folding, climate models, or medical simulations.</p>
-        </div>
-
-        <div class="glass rounded-2xl p-6 text-center">
-          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-silica to-silica-glow flex items-center justify-center">
-            <span class="font-display text-2xl font-bold text-snow">3</span>
-          </div>
-          <h3 class="font-display text-lg font-bold text-snow mb-3">Verify</h3>
-          <p class="text-silver text-sm">Cryptographic proofs validate work integrity. Fraud proofs catch manipulation.</p>
-        </div>
-
-        <div class="glass rounded-2xl p-6 text-center">
-          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-quantum to-quantum-glow flex items-center justify-center">
-            <span class="font-display text-2xl font-bold text-void">4</span>
-          </div>
-          <h3 class="font-display text-lg font-bold text-snow mb-3">Reward</h3>
-          <p class="text-silver text-sm">CHERT rewards distributed proportional to verified useful computation.</p>
-        </div>
-      </div>
-
-      <!-- Scientific Partners -->
-      <div class="text-center mb-12">
-        <h3 class="font-display text-2xl font-bold text-snow mb-2">Scientific Partners</h3>
-        <p class="text-silver">Integrated platforms for meaningful computation</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- BOINC -->
-        <div class="glass rounded-2xl p-8 hover:border-silica/30 transition-all duration-300 group">
-          <div class="flex items-start justify-between mb-6">
-            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-              <span class="font-display font-bold text-snow text-sm">BOINC</span>
-            </div>
-            <span class="text-xs font-mono text-silica-bright bg-silica/10 px-2 py-1 rounded">INTEGRATED</span>
-          </div>
-          <h3 class="font-display text-xl font-bold text-snow mb-3">Berkeley BOINC</h3>
-          <p class="text-silver text-sm leading-relaxed mb-4">
-            The world's largest distributed computing platform. Access to Einstein@Home, SETI@Home, and dozens of research projects.
-          </p>
-          <div class="space-y-2">
-            <div class="flex items-center text-sm text-silver">
-              <svg class="w-4 h-4 mr-2 text-silica-bright" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Einstein@Home - Gravitational Waves
-            </div>
-            <div class="flex items-center text-sm text-silver">
-              <svg class="w-4 h-4 mr-2 text-silica-bright" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              World Community Grid
-            </div>
-            <div class="flex items-center text-sm text-silver">
-              <svg class="w-4 h-4 mr-2 text-silica-bright" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Climate Prediction
-            </div>
-          </div>
-        </div>
-
-        <!-- Folding@Home -->
-        <div class="glass rounded-2xl p-8 hover:border-silica/30 transition-all duration-300 group">
-          <div class="flex items-start justify-between mb-6">
-            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
-              <span class="font-display font-bold text-snow text-xs">F@H</span>
-            </div>
-            <span class="text-xs font-mono text-silica-bright bg-silica/10 px-2 py-1 rounded">INTEGRATED</span>
-          </div>
-          <h3 class="font-display text-xl font-bold text-snow mb-3">Folding@Home</h3>
-          <p class="text-silver text-sm leading-relaxed mb-4">
-            Protein folding simulations for disease research. COVID-19, cancer, Alzheimer's, and Parkinson's research.
-          </p>
-          <div class="space-y-2">
-            <div class="flex items-center text-sm text-silver">
-              <svg class="w-4 h-4 mr-2 text-silica-bright" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Cancer Research
-            </div>
-            <div class="flex items-center text-sm text-silver">
-              <svg class="w-4 h-4 mr-2 text-silica-bright" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Drug Discovery
-            </div>
-            <div class="flex items-center text-sm text-silver">
-              <svg class="w-4 h-4 mr-2 text-silica-bright" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Viral Protein Analysis
-            </div>
-          </div>
-        </div>
-
-        <!-- Future Partners -->
-        <div class="glass rounded-2xl p-8 hover:border-quantum/30 transition-all duration-300 group border-dashed border-white/10">
-          <div class="flex items-start justify-between mb-6">
-            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-quantum/50 to-quantum flex items-center justify-center">
-              <svg class="w-7 h-7 text-snow/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              </svg>
-            </div>
-            <span class="text-xs font-mono text-quantum bg-quantum/10 px-2 py-1 rounded">EXPANDING</span>
-          </div>
-          <h3 class="font-display text-xl font-bold text-snow mb-3">Coming Soon</h3>
-          <p class="text-silver text-sm leading-relaxed mb-4">
-            New partnerships with academic institutions and research organizations. AI training, genomics, and more.
-          </p>
-          <div class="space-y-2">
-            <div class="flex items-center text-sm text-silver/60">
-              <svg class="w-4 h-4 mr-2 text-quantum/60" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
-              Academic Partnerships
-            </div>
-            <div class="flex items-center text-sm text-silver/60">
-              <svg class="w-4 h-4 mr-2 text-quantum/60" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
-              AI/ML Training
-            </div>
-            <div class="flex items-center text-sm text-silver/60">
-              <svg class="w-4 h-4 mr-2 text-quantum/60" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
-              Genomics Research
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Developer Tools -->
-  <section class="py-32 bg-void relative overflow-hidden" id="developers">
-    <div class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-nebula/10 blur-[150px]"></div>
-    
-    <div class="relative max-w-[1600px] mx-auto px-6 lg:px-12">
-      <div class="text-center mb-20">
-        <span class="text-nebula-bright font-display text-sm font-semibold tracking-widest uppercase">Developer Tools</span>
-        <h2 class="font-display text-3xl md:text-5xl font-bold text-snow mt-4 mb-6">
-          Build on Chert
-        </h2>
-        <p class="max-w-2xl mx-auto text-silver text-lg">
-          SDKs, APIs, and tools for building the next generation of blockchain applications.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- SDK -->
-        <a href="https://silica.network/sdk" class="glass rounded-2xl p-6 hover:border-nebula/30 transition-all duration-300 group">
-          <div class="w-12 h-12 mb-4 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center">
-            <svg class="w-6 h-6 text-snow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-            </svg>
-          </div>
-          <h3 class="font-display text-lg font-bold text-snow mb-2">SDK</h3>
-          <p class="text-silver text-sm">TypeScript, Rust, and Python SDKs for full blockchain integration.</p>
-          <span class="inline-flex items-center text-quantum text-sm mt-4 group-hover:translate-x-1 transition-transform">
-            View SDKs
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-          </span>
-        </a>
-
-        <!-- API -->
-        <a href="https://silica.network/api" class="glass rounded-2xl p-6 hover:border-nebula/30 transition-all duration-300 group">
-          <div class="w-12 h-12 mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-            <svg class="w-6 h-6 text-snow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
-          </div>
-          <h3 class="font-display text-lg font-bold text-snow mb-2">REST API</h3>
-          <p class="text-silver text-sm">Complete REST and WebSocket APIs for blockchain interaction.</p>
-          <span class="inline-flex items-center text-quantum text-sm mt-4 group-hover:translate-x-1 transition-transform">
-            API Docs
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-          </span>
-        </a>
-
-        <!-- Smart Contracts -->
-        <a href="https://silica.network/contracts" class="glass rounded-2xl p-6 hover:border-nebula/30 transition-all duration-300 group">
-          <div class="w-12 h-12 mb-4 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
-            <svg class="w-6 h-6 text-snow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-            </svg>
-          </div>
-          <h3 class="font-display text-lg font-bold text-snow mb-2">Contracts</h3>
-          <p class="text-silver text-sm">WASM smart contracts executed via Crystallite's parallel execution/apply framework.</p>
-          <span class="inline-flex items-center text-quantum text-sm mt-4 group-hover:translate-x-1 transition-transform">
-            Contract Guide
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-          </span>
-        </a>
-
-        <!-- Explorer -->
-        <a href="https://explorer.silicaprotocol.network" class="glass rounded-2xl p-6 hover:border-nebula/30 transition-all duration-300 group">
-          <div class="w-12 h-12 mb-4 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
-            <svg class="w-6 h-6 text-snow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-            </svg>
-          </div>
-          <h3 class="font-display text-lg font-bold text-snow mb-2">Explorer</h3>
-          <p class="text-silver text-sm">Real-time blockchain explorer with full transaction history.</p>
-          <span class="inline-flex items-center text-quantum text-sm mt-4 group-hover:translate-x-1 transition-transform">
-            Open Explorer
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-          </span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Impact Stats -->
-  <section class="py-32 bg-obsidian relative overflow-hidden">
-    <div class="absolute inset-0 grid-pattern opacity-10"></div>
-    
     <div class="relative max-w-[1600px] mx-auto px-6 lg:px-12">
       <div class="text-center mb-16">
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-snow mb-4">
-          Network Impact
+        <span class="text-quantum font-display text-sm font-semibold tracking-widest uppercase">Meaningful participation</span>
+        <h2 class="font-display text-3xl md:text-5xl font-bold text-snow mt-4 mb-6">
+          Useful work should be a first-class part of the ecosystem.
         </h2>
-        <p class="text-silver text-lg">Real-world contribution to scientific research</p>
+        <p class="max-w-3xl mx-auto text-silver text-lg">
+          On Chert, that means explaining the idea clearly without pretending there is a live partner registry or invented public telemetry when those proof surfaces are not published yet.
+        </p>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="text-center p-8">
-          <div class="text-4xl md:text-5xl font-display font-bold text-quantum mb-2">∞</div>
-          <div class="text-silver text-sm font-medium uppercase tracking-wider">Potential</div>
-        </div>
-        <div class="text-center p-8">
-          <div class="text-4xl md:text-5xl font-display font-bold text-silica-bright mb-2">1M+</div>
-          <div class="text-silver text-sm font-medium uppercase tracking-wider">TPS Target</div>
-        </div>
-        <div class="text-center p-8">
-          <div class="text-4xl md:text-5xl font-display font-bold text-nebula-bright mb-2">PQ</div>
-          <div class="text-silver text-sm font-medium uppercase tracking-wider">Quantum Safe</div>
-        </div>
-        <div class="text-center p-8">
-          <div class="text-4xl md:text-5xl font-display font-bold text-quantum mb-2">&lt;1s</div>
-          <div class="text-silver text-sm font-medium uppercase tracking-wider">Finality</div>
-        </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16">
+        {participationFlow.map((item) => (
+          <article class="glass rounded-2xl p-8 text-center h-full">
+            <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-silica to-silica-glow flex items-center justify-center">
+              <span class="font-display text-2xl font-bold text-snow">{item.step}</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-snow mb-3">{item.title}</h3>
+            <p class="text-silver leading-relaxed">{item.description}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="glass-light rounded-3xl p-8 md:p-10 border border-white/10">
+        <p class="text-xs uppercase tracking-[0.2em] text-silver mb-3">Terminology rule</p>
+        <p class="text-silver text-lg leading-relaxed">
+          <span class="text-snow">Proof of Useful Work (PoUW)</span> is the parent mechanism. <span class="text-snow">NUW</span>, BOINC-backed workloads, Folding@Home workloads, and future scientific or AI programs are categories or implementations within that broader system.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <section class="py-32 bg-void relative overflow-hidden" id="workload-categories">
+    <div class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-nebula/10 blur-[150px]"></div>
+
+    <div class="relative max-w-[1600px] mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16">
+        <span class="text-nebula-bright font-display text-sm font-semibold tracking-widest uppercase">Useful-work categories</span>
+        <h2 class="font-display text-3xl md:text-5xl font-bold text-snow mt-4 mb-6">
+          What fits inside the model
+        </h2>
+        <p class="max-w-3xl mx-auto text-silver text-lg">
+          These are ecosystem categories, not claims that every program is already live. Public rollout status should always be labeled clearly.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        {workloadCards.map((card) => (
+          <article class="glass rounded-2xl p-8 h-full">
+            <p class="text-xs uppercase tracking-[0.2em] text-silica-bright mb-3">{card.label}</p>
+            <h3 class="font-display text-2xl font-bold text-snow mb-4">{card.title}</h3>
+            <p class="text-silver leading-relaxed">{card.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-32 bg-obsidian relative overflow-hidden" id="surfaces">
+    <div class="absolute inset-0 grid-pattern opacity-10"></div>
+
+    <div class="relative max-w-[1600px] mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16">
+        <span class="text-aurora font-display text-sm font-semibold tracking-widest uppercase">What you can use</span>
+        <h2 class="font-display text-3xl md:text-5xl font-bold text-snow mt-4 mb-6">
+          Start with the real public surfaces.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        {surfaceCards.map((card) => (
+          <a href={card.href} class="glass rounded-2xl p-8 hover:border-white/15 transition-all duration-300 group">
+            <h3 class="font-display text-2xl font-bold text-snow mb-4">{card.title}</h3>
+            <p class="text-silver leading-relaxed mb-6">{card.description}</p>
+            <span class="inline-flex items-center text-quantum text-sm group-hover:translate-x-1 transition-transform">
+              {card.label}
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="py-32 bg-void relative overflow-hidden">
     <div class="absolute inset-0">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-quantum/10 via-silica/10 to-nebula/10 blur-[150px] rounded-full"></div>
@@ -294,23 +184,18 @@ import Layout from '../layouts/Layout.astro';
 
     <div class="relative max-w-4xl mx-auto px-6 lg:px-12 text-center">
       <h2 class="font-display text-3xl md:text-5xl font-bold text-snow mb-6">
-        Join the Ecosystem
+        Want the technical registry, APIs, and roadmap details?
       </h2>
       <p class="text-xl text-silver leading-relaxed mb-12">
-        Start mining with purpose. Build applications that matter. Be part of the future.
+        Chert explains the ecosystem at a user-friendly level. Silica Protocol is where the deeper builder, operator, and proof surfaces should live.
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="https://wallet.silica.io" class="btn-quantum btn-premium">
-          Get Started
-        </a>
-        <a href="https://silica.network/developers" class="btn-ghost btn-premium">
-          Documentation
-        </a>
+        <a href="https://wallet.chert.cash" class="btn-quantum btn-premium">Open Wallet</a>
+        <a href="https://silicaprotocol.network" class="btn-ghost btn-premium">Silica Protocol</a>
       </div>
     </div>
   </section>
-
 </Layout>
 
 <style>

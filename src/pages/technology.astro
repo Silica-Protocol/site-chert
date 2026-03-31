@@ -1,13 +1,65 @@
 ---
-// Chert Technology Page - Deep dive into the technology
 import Layout from '../layouts/Layout.astro';
+
+const pillars = [
+  {
+    title: 'Fast feedback',
+    description:
+      'You should know quickly that your transfer is on its way, not wonder whether the button worked.'
+  },
+  {
+    title: 'Simple money UX',
+    description:
+      'Chert aims for a clean wallet and explorer experience instead of asking normal users to learn protocol trivia.'
+  },
+  {
+    title: 'Low-fee friendly design',
+    description:
+      'The goal is everyday movement and micropayment-sized activity, not only expensive transactions reserved for power users.'
+  },
+  {
+    title: 'Meaningful participation',
+    description:
+      'The network story includes useful work, so participation can point toward public-value computation instead of waste.'
+  }
+];
+
+const flowCards = [
+  {
+    title: 'Send',
+    description: 'Open the wallet, submit a transfer, and get immediate feedback instead of mystery.'
+  },
+  {
+    title: 'See it pending',
+    description: 'Pending is the fast user-facing signal that your activity has been picked up and is moving through the system.'
+  },
+  {
+    title: 'Settle cleanly',
+    description: 'The protocol finalizes the result after that, which is where the deeper mechanics belong on the Silica site.'
+  }
+];
+
+const trustCards = [
+  {
+    title: 'Post-quantum ready',
+    description:
+      'Chert inherits a protocol stack that is designed with post-quantum readiness in mind, so the security story is not stuck in the past.'
+  },
+  {
+    title: 'Useful work, explained simply',
+    description:
+      'Silica uses Proof of Useful Work (PoUW). NUW is one class of participation inside that broader useful-work system.'
+  },
+  {
+    title: 'Silica handles the deep details',
+    description:
+      'Alluvium, Tephra, Crystallite, Lithification, and Cali belong on the protocol site when you want architecture, operator, or API depth.'
+  }
+];
 ---
 
-<Layout title="Technology — CHERT" description="Deep dive into Chert's layered architecture: Alluvium, Tephra, Crystallite, Lithification, and Cali.">
-  
-  <!-- Hero Section -->
+<Layout title="Why Chert — Fast, simple, useful money" description="Why Chert exists: fast feedback, simple payments, low-fee friendliness, post-quantum readiness, and meaningful participation powered by Silica Protocol.">
   <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-24">
-    <!-- Background -->
     <div class="absolute inset-0 bg-void">
       <div class="absolute inset-0 grid-pattern opacity-20"></div>
       <div class="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-silica/10 blur-[150px]"></div>
@@ -15,403 +67,120 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
     <div class="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-12 py-20 text-center">
-      <span class="text-quantum font-display text-sm font-semibold tracking-widest uppercase">Technology</span>
+      <span class="text-quantum font-display text-sm font-semibold tracking-widest uppercase">Why Chert</span>
       <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-snow mt-4 mb-6">
-        Built for
-        <span class="gradient-text">Impossibility</span>
+        Money should feel
+        <span class="gradient-text">faster, clearer, and lighter</span>
       </h1>
       <p class="max-w-3xl mx-auto text-xl text-silver leading-relaxed">
-        Five branded layers. Post-quantum cryptography. Meaningful computation.
-        Every component engineered for the future.
+        Chert is meant to make the user experience obvious: send value, see it move quickly, pay sensible fees, and know the system below you is built for the long haul.
       </p>
     </div>
   </section>
 
-  <!-- Consensus Deep Dive -->
-  <section class="py-32 bg-obsidian relative overflow-hidden" id="consensus">
+  <section class="py-32 bg-obsidian relative overflow-hidden" id="pillars">
     <div class="absolute inset-0 grid-pattern opacity-10"></div>
-    
+
     <div class="relative max-w-[1600px] mx-auto px-6 lg:px-12">
-      <!-- Section Header -->
-      <div class="text-center mb-20">
-        <span class="text-silica-bright font-display text-sm font-semibold tracking-widest uppercase">Consensus Architecture</span>
+      <div class="text-center mb-16">
+        <span class="text-silica-bright font-display text-sm font-semibold tracking-widest uppercase">Benefits first</span>
         <h2 class="font-display text-3xl md:text-5xl font-bold text-snow mt-4 mb-6">
-          Alluvium + Tephra + Crystallite + Lithification + Cali
+          The point is not more jargon.
+          <span class="gradient-text">The point is better money UX.</span>
         </h2>
-        <p class="max-w-2xl mx-auto text-silver text-lg">
-          When you hit send, you should see your transaction immediately, watch it apply to your account, and know exactly when it becomes permanent.
-          Chert’s pipeline delivers a fast, consistent <span class="text-snow">pending</span> state and then locks it in with <span class="text-snow">aBFT finality</span>—typically in under a second.
+        <p class="max-w-3xl mx-auto text-silver text-lg">
+          This page stays at the user-benefit level on purpose. If you want the full protocol machinery, that belongs on <a href="https://silicaprotocol.network" class="text-silica-bright hover:text-silica">Silica Protocol</a>.
         </p>
       </div>
 
-      <!-- Layer 1: Alluvium -->
-      <div class="mb-24">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div class="inline-flex items-center space-x-3 mb-6">
-              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-silica to-silica-glow flex items-center justify-center">
-                <span class="font-display font-bold text-snow text-lg">1</span>
-              </div>
-              <div>
-                <h3 class="font-display text-2xl font-bold text-snow">Alluvium</h3>
-                <p class="text-silica-bright text-sm font-mono">DATA PLANE</p>
-              </div>
-            </div>
-            
-            <p class="text-silver leading-relaxed mb-6">
-               Your transactions are collected into micro-batches and rapidly propagated across the network.
-               Alluvium is the Narwhal-inspired data plane focused on <span class="text-snow">getting your data everywhere fast</span> so the next layers can order, apply, and checkpoint it without slowing you down.
-            </p>
-
-            <div class="space-y-4">
-              <div class="glass-light rounded-lg p-4">
-                 <h4 class="font-display font-semibold text-snow mb-2">Micro-Batching</h4>
-                 <p class="text-silver text-sm">Your transaction is grouped into a batch and broadcast immediately, so you can see it as <span class="text-snow">pending</span> quickly.</p>
-              </div>
-              <div class="glass-light rounded-lg p-4">
-                 <h4 class="font-display font-semibold text-snow mb-2">DAG Structure</h4>
-                 <p class="text-silver text-sm">Batches form a DAG so the network can move many transactions at once without a single bottleneck.</p>
-              </div>
-              <div class="glass-light rounded-lg p-4">
-                 <h4 class="font-display font-semibold text-snow mb-2">Erasure Coding</h4>
-                 <p class="text-silver text-sm">Your batch stays retrievable even if some validators go offline or act maliciously.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Visual -->
-          <div class="glass rounded-2xl p-8">
-            <div class="aspect-square relative">
-              <!-- DAG Visualization -->
-              <svg viewBox="0 0 300 300" class="w-full h-full">
-                <!-- Nodes -->
-                <circle cx="150" cy="50" r="20" fill="url(#silicaGradient)" opacity="0.9"/>
-                <circle cx="80" cy="120" r="20" fill="url(#silicaGradient)" opacity="0.8"/>
-                <circle cx="220" cy="120" r="20" fill="url(#silicaGradient)" opacity="0.8"/>
-                <circle cx="50" cy="200" r="20" fill="url(#silicaGradient)" opacity="0.7"/>
-                <circle cx="150" cy="200" r="20" fill="url(#silicaGradient)" opacity="0.7"/>
-                <circle cx="250" cy="200" r="20" fill="url(#silicaGradient)" opacity="0.7"/>
-                <circle cx="100" cy="270" r="20" fill="url(#silicaGradient)" opacity="0.6"/>
-                <circle cx="200" cy="270" r="20" fill="url(#silicaGradient)" opacity="0.6"/>
-                
-                <!-- Edges -->
-                <line x1="150" y1="70" x2="80" y2="100" stroke="#60a5fa" stroke-width="2" opacity="0.5"/>
-                <line x1="150" y1="70" x2="220" y2="100" stroke="#60a5fa" stroke-width="2" opacity="0.5"/>
-                <line x1="80" y1="140" x2="50" y2="180" stroke="#60a5fa" stroke-width="2" opacity="0.5"/>
-                <line x1="80" y1="140" x2="150" y2="180" stroke="#60a5fa" stroke-width="2" opacity="0.5"/>
-                <line x1="220" y1="140" x2="150" y2="180" stroke="#60a5fa" stroke-width="2" opacity="0.5"/>
-                <line x1="220" y1="140" x2="250" y2="180" stroke="#60a5fa" stroke-width="2" opacity="0.5"/>
-                <line x1="50" y1="220" x2="100" y2="250" stroke="#60a5fa" stroke-width="2" opacity="0.5"/>
-                <line x1="150" y1="220" x2="100" y2="250" stroke="#60a5fa" stroke-width="2" opacity="0.5"/>
-                <line x1="150" y1="220" x2="200" y2="250" stroke="#60a5fa" stroke-width="2" opacity="0.5"/>
-                <line x1="250" y1="220" x2="200" y2="250" stroke="#60a5fa" stroke-width="2" opacity="0.5"/>
-                
-                <!-- Gradient -->
-                <defs>
-                  <linearGradient id="silicaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#3b82f6"/>
-                    <stop offset="100%" style="stop-color:#2563eb"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-              <div class="absolute bottom-4 left-4 right-4 text-center">
-                <p class="text-silver text-sm">Directed Acyclic Graph Structure</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Layer 2: Tephra -->
-       <div class="mb-16">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <!-- Visual -->
-          <div class="glass rounded-2xl p-8 order-2 lg:order-1">
-            <div class="text-center">
-              <div class="grid grid-cols-3 gap-4 mb-8">
-                <div class="aspect-square bg-quantum/20 rounded-xl flex items-center justify-center border border-quantum/30">
-                  <span class="text-quantum font-mono text-sm">V1</span>
-                </div>
-                <div class="aspect-square bg-quantum/20 rounded-xl flex items-center justify-center border border-quantum/30">
-                  <span class="text-quantum font-mono text-sm">V2</span>
-                </div>
-                <div class="aspect-square bg-quantum/20 rounded-xl flex items-center justify-center border border-quantum/30">
-                  <span class="text-quantum font-mono text-sm">V3</span>
-                </div>
-                <div class="aspect-square bg-quantum/20 rounded-xl flex items-center justify-center border border-quantum/30">
-                  <span class="text-quantum font-mono text-sm">V4</span>
-                </div>
-                <div class="aspect-square bg-quantum/40 rounded-xl flex items-center justify-center border-2 border-quantum">
-                  <span class="text-quantum font-mono text-sm font-bold">PROP</span>
-                </div>
-                <div class="aspect-square bg-quantum/20 rounded-xl flex items-center justify-center border border-quantum/30">
-                  <span class="text-quantum font-mono text-sm">V6</span>
-                </div>
-                <div class="aspect-square bg-quantum/20 rounded-xl flex items-center justify-center border border-quantum/30">
-                  <span class="text-quantum font-mono text-sm">V7</span>
-                </div>
-                <div class="aspect-square bg-quantum/20 rounded-xl flex items-center justify-center border border-quantum/30">
-                  <span class="text-quantum font-mono text-sm">V8</span>
-                </div>
-                <div class="aspect-square bg-quantum/20 rounded-xl flex items-center justify-center border border-quantum/30">
-                  <span class="text-quantum font-mono text-sm">V9</span>
-                </div>
-              </div>
-              <p class="text-silver text-sm">Deterministic Commit Linearization</p>
-            </div>
-          </div>
-
-          <div class="order-1 lg:order-2">
-            <div class="inline-flex items-center space-x-3 mb-6">
-              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-quantum to-quantum-glow flex items-center justify-center">
-                <span class="font-display font-bold text-void text-lg">2</span>
-              </div>
-              <div>
-                <h3 class="font-display text-2xl font-bold text-snow">Tephra</h3>
-                <p class="text-quantum text-sm font-mono">ORDERING LAYER</p>
-              </div>
-            </div>
-            
-            <p class="text-silver leading-relaxed mb-6">
-               Tephra turns network-wide batches into a single, shared history.
-               It <span class="text-snow">sorts and commits batches to the DAG</span> quickly (often <span class="text-snow">&lt; 300ms</span>), which is what enables near-instant <span class="text-snow">pending</span> transactions.
-            </p>
-
-            <div class="space-y-4">
-               <div class="glass-light rounded-lg p-4">
-                 <h4 class="font-display font-semibold text-snow mb-2">Instant Pending</h4>
-                 <p class="text-silver text-sm">Once your batch is committed into the DAG, wallets can reliably show your transfer as <span class="text-snow">pending</span> without waiting for “confirmations”.</p>
-               </div>
-               <div class="glass-light rounded-lg p-4">
-                 <h4 class="font-display font-semibold text-snow mb-2">Verifiable Ordering</h4>
-                 <p class="text-silver text-sm">Compact certificate proofs let any node verify the ordering of your batch without expensive re-checking.</p>
-               </div>
-               <div class="glass-light rounded-lg p-4">
-                 <h4 class="font-display font-semibold text-snow mb-2">Stays Responsive</h4>
-                 <p class="text-silver text-sm">Timeout and recovery rules keep your pending experience smooth—even during congestion or partitions.</p>
-               </div>
-            </div>
-          </div>
-        </div>
-       </div>
-
-      <!-- Layer 3: Crystallite -->
-       <div class="mb-24">
-         <div class="glass rounded-2xl p-8 lg:p-10">
-           <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
-             <div class="lg:col-span-1">
-               <div class="inline-flex items-center space-x-3 mb-4">
-                 <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-snow/80 to-silver/40 flex items-center justify-center">
-                   <span class="font-display font-bold text-void text-lg">+</span>
-                 </div>
-                 <div>
-                   <h3 class="font-display text-2xl font-bold text-snow">Crystallite</h3>
-                   <p class="text-silver text-sm font-mono">EXECUTION / APPLY</p>
-                 </div>
-               </div>
-
-               <p class="text-silver leading-relaxed">
-                 After your transaction is ordered, it flows through Crystallite—Chert’s deterministic execution/apply layer—so results apply cleanly to your account.
-                 This is what turns “pending” into visible balance and state updates for transfers <span class="text-snow">in and out</span> of your wallet.
-               </p>
-             </div>
-
-             <div class="lg:col-span-2">
-               <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                 <div class="glass-light rounded-lg p-4">
-                   <h4 class="font-display font-semibold text-snow mb-2">Parallel Lanes</h4>
-                   <p class="text-silver text-sm">Independent lanes execute safely in parallel for speed.</p>
-                 </div>
-                 <div class="glass-light rounded-lg p-4">
-                   <h4 class="font-display font-semibold text-snow mb-2">Deterministic Results</h4>
-                   <p class="text-silver text-sm">Same inputs always produce the same outputs across every validator.</p>
-                 </div>
-                 <div class="glass-light rounded-lg p-4">
-                   <h4 class="font-display font-semibold text-snow mb-2">Account Updates</h4>
-                   <p class="text-silver text-sm">State changes are applied and indexed so your wallet reflects them quickly.</p>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-
-        <!-- Layer 4: Lithification -->
-      <div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div class="inline-flex items-center space-x-3 mb-6">
-              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-nebula to-nebula-bright flex items-center justify-center">
-                <span class="font-display font-bold text-snow text-lg">3</span>
-              </div>
-              <div>
-                 <h3 class="font-display text-2xl font-bold text-snow">Lithification</h3>
-                <p class="text-nebula-bright text-sm font-mono">PROOFS / CHECKPOINTS</p>
-              </div>
-            </div>
-            
-            <p class="text-silver leading-relaxed mb-6">
-               Lithification packages the finalized result into anchors, certificates, and sync-friendly checkpoints.
-               Once Crystallite has applied Tephra order, Lithification turns the result into portable proof surfaces: <span class="text-snow">auditable, replayable, and permanent</span>.
-            </p>
-
-            <div class="space-y-4">
-               <div class="glass-light rounded-lg p-4">
-                 <h4 class="font-display font-semibold text-snow mb-2">Proof Packaging</h4>
-                 <p class="text-silver text-sm">Anchors and certificates package finalized state into proof surfaces for wallets, explorers, and recovery.</p>
-               </div>
-               <div class="glass-light rounded-lg p-4">
-                 <h4 class="font-display font-semibold text-snow mb-2">Checkpoint Boundaries</h4>
-                 <p class="text-silver text-sm">Lineations and related checkpoints make replay, pruning, and fast sync safer and simpler.</p>
-               </div>
-               <div class="glass-light rounded-lg p-4">
-                 <h4 class="font-display font-semibold text-snow mb-2">Post-Quantum Proofs</h4>
-                 <p class="text-silver text-sm">Finality certificates are backed by post-quantum signatures designed to stay safe as computing changes.</p>
-               </div>
-            </div>
-          </div>
-
-          <!-- Visual -->
-          <div class="glass rounded-2xl p-8">
-            <div class="text-center">
-              <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-nebula to-nebula-bright flex items-center justify-center">
-                <svg class="w-16 h-16 text-snow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                </svg>
-              </div>
-               <h4 class="font-display text-xl font-bold text-snow mb-2">From Pending to Permanent</h4>
-                 <p class="text-silver">Typically ~0.5s to show as pending, with ordered, applied, and checkpointed transfers finalized in under 1s.</p>
-               <div class="mt-6 pt-6 border-t border-white/10">
-                 <div class="text-4xl font-display font-bold text-nebula-bright">&lt; 1s</div>
-                 <div class="text-silver text-sm">Typical end-to-end finality</div>
-               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Layer 5: Cali -->
-      <div class="mt-24">
-        <div class="glass rounded-2xl p-8 lg:p-10">
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
-            <div class="lg:col-span-1">
-              <div class="inline-flex items-center space-x-3 mb-4">
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-amber-500 flex items-center justify-center">
-                  <span class="font-display font-bold text-void text-lg">5</span>
-                </div>
-                <div>
-                  <h3 class="font-display text-2xl font-bold text-snow">Cali</h3>
-                  <p class="text-amber-300 text-sm font-mono">MONITORING / RECOVERY</p>
-                </div>
-              </div>
-
-              <p class="text-silver leading-relaxed">
-                Cali is the watchdog around the stack. It tracks health, observes finalized checkpoints, and helps the network recover cleanly when liveness degrades.
-              </p>
-            </div>
-
-            <div class="lg:col-span-2">
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="glass-light rounded-lg p-4">
-                  <h4 class="font-display font-semibold text-snow mb-2">Health Signals</h4>
-                  <p class="text-silver text-sm">Peer readiness, liveness, and progress tracking across the stack.</p>
-                </div>
-                <div class="glass-light rounded-lg p-4">
-                  <h4 class="font-display font-semibold text-snow mb-2">Recovery Hooks</h4>
-                  <p class="text-silver text-sm">Restart and catch-up flows use checkpoints to restore clean progress.</p>
-                </div>
-                <div class="glass-light rounded-lg p-4">
-                  <h4 class="font-display font-semibold text-snow mb-2">Operational Safety</h4>
-                  <p class="text-silver text-sm">The network stays observable and recoverable under churn, latency, or partial partitions.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        {pillars.map((pillar) => (
+          <article class="glass rounded-2xl p-8 h-full">
+            <h3 class="font-display text-2xl font-bold text-snow mb-4">{pillar.title}</h3>
+            <p class="text-silver leading-relaxed">{pillar.description}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Post-Quantum Security -->
-  <section class="py-32 bg-void relative overflow-hidden" id="security">
+  <section class="py-32 bg-void relative overflow-hidden" id="how-it-feels">
     <div class="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-nebula/10 blur-[150px]"></div>
-    
+
     <div class="relative max-w-[1600px] mx-auto px-6 lg:px-12">
-      <div class="text-center mb-20">
-        <span class="text-nebula-bright font-display text-sm font-semibold tracking-widest uppercase">Security</span>
-        <h2 class="font-display text-3xl md:text-5xl font-bold text-snow mt-4 mb-6">
-          Post-Quantum Cryptography
-        </h2>
-        <p class="max-w-2xl mx-auto text-silver text-lg">
-          Built for a world where quantum computers exist. NIST-approved algorithms protect your assets today and tomorrow.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="glass rounded-2xl p-8 hover:border-nebula/30 transition-all duration-300">
-          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-nebula to-nebula-bright flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-snow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
-            </svg>
-          </div>
-          <h3 class="font-display text-xl font-bold text-snow mb-3">Dilithium-2</h3>
-          <p class="text-silver text-sm leading-relaxed">
-            NIST-selected lattice-based digital signature scheme. Resistant to Shor's algorithm attacks on elliptic curves.
+      <div class="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-12 items-start">
+        <div>
+          <span class="text-nebula-bright font-display text-sm font-semibold tracking-widest uppercase">Pending vs settlement</span>
+          <h2 class="font-display text-3xl md:text-5xl font-bold text-snow mt-4 mb-6">
+            Fast feedback matters because waiting feels broken.
+          </h2>
+          <p class="text-silver text-lg leading-relaxed mb-6">
+            Chert should feel responsive. The user-facing explanation is simple: you submit a transfer, see it picked up quickly, and then let the protocol settle it properly behind the scenes.
+          </p>
+          <p class="text-silver text-lg leading-relaxed">
+            That distinction helps users without dumping architecture names on them above the fold. It is enough to know that <span class="text-snow">pending is fast feedback</span> and <span class="text-snow">settlement is the protocol completing the job</span>.
           </p>
         </div>
 
-        <div class="glass rounded-2xl p-8 hover:border-nebula/30 transition-all duration-300">
-          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-nebula to-nebula-bright flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-snow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
-            </svg>
-          </div>
-          <h3 class="font-display text-xl font-bold text-snow mb-3">Hybrid Approach</h3>
-          <p class="text-silver text-sm leading-relaxed">
-            Classical (Ed25519) and post-quantum signatures combined. Defense in depth against unknown vulnerabilities.
-          </p>
-        </div>
-
-        <div class="glass rounded-2xl p-8 hover:border-nebula/30 transition-all duration-300">
-          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-nebula to-nebula-bright flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-snow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-            </svg>
-          </div>
-          <h3 class="font-display text-xl font-bold text-snow mb-3">Upgradeable</h3>
-          <p class="text-silver text-sm leading-relaxed">
-            Cryptographic agility built-in. Upgrade algorithms without hard forks as standards evolve.
-          </p>
+        <div class="space-y-4">
+          {flowCards.map((card, index) => (
+            <div class="glass-light rounded-2xl p-6 flex gap-4 items-start">
+              <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 text-quantum font-display font-bold">
+                {index + 1}
+              </div>
+              <div>
+                <h3 class="font-display text-2xl font-bold text-snow mb-2">{card.title}</h3>
+                <p class="text-silver leading-relaxed">{card.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-32 bg-obsidian relative overflow-hidden">
+  <section class="py-32 bg-obsidian relative overflow-hidden" id="trust">
+    <div class="absolute inset-0 grid-pattern opacity-10"></div>
+
+    <div class="relative max-w-[1600px] mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16">
+        <span class="text-aurora font-display text-sm font-semibold tracking-widest uppercase">Why it is different</span>
+        <h2 class="font-display text-3xl md:text-5xl font-bold text-snow mt-4 mb-6">
+          The user story is backed by a system that takes
+          <span class="gradient-text">security and useful work seriously</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {trustCards.map((card) => (
+          <article class="glass rounded-2xl p-8 h-full">
+            <h3 class="font-display text-2xl font-bold text-snow mb-4">{card.title}</h3>
+            <p class="text-silver leading-relaxed">{card.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-32 bg-void relative overflow-hidden" id="route-out">
     <div class="absolute inset-0">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-quantum/10 via-silica/10 to-nebula/10 blur-[150px] rounded-full"></div>
     </div>
 
     <div class="relative max-w-4xl mx-auto px-6 lg:px-12 text-center">
       <h2 class="font-display text-3xl md:text-5xl font-bold text-snow mb-6">
-        Ready to Build?
+        Want the deeper technical story?
       </h2>
       <p class="text-xl text-silver leading-relaxed mb-12">
-        Explore our documentation, SDKs, and developer resources.
+        Chert keeps the explanation benefits-first. For architecture, APIs, SDKs, contracts, nodes, and research, go straight to the protocol site.
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="https://silica.network/developers" class="btn-quantum btn-premium">
-          Developer Docs
-        </a>
-        <a href="https://github.com/Silica-Protocol" class="btn-ghost btn-premium">
-          View Source
-        </a>
+        <a href="https://wallet.chert.cash" class="btn-quantum btn-premium">Open Wallet</a>
+        <a href="https://silicaprotocol.network" class="btn-ghost btn-premium">Silica Protocol</a>
       </div>
     </div>
   </section>
-
 </Layout>
 
 <style>

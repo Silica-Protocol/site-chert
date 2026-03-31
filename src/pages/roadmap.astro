@@ -1,329 +1,272 @@
 ---
-// Chert Coin - Network Roadmap
 import Layout from '../layouts/Layout.astro';
+
+const liveItems = [
+  {
+    title: 'Chert website',
+    description: 'User-focused site for the Chert currency experience and ecosystem entry points.',
+    href: '/',
+    label: 'You are here'
+  },
+  {
+    title: 'Silica Protocol website',
+    description: 'Technical protocol site with architecture documentation and developer surfaces.',
+    href: 'https://silicaprotocol.network',
+    label: 'Visit'
+  },
+  {
+    title: 'Blog and updates',
+    description: 'User-focused guides and project updates published as content is ready.',
+    href: '/blog',
+    label: 'Read'
+  },
+  {
+    title: 'GitHub repositories',
+    description: 'Open-source protocol code available for developers and contributors.',
+    href: 'https://github.com/Silica-Protocol',
+    label: 'Explore'
+  },
+  {
+    title: 'Community channels',
+    description: 'Discord and X for announcements, discussion, and community participation.',
+    href: 'https://discord.gg/silica',
+    label: 'Discord'
+  }
+];
+
+const comingSoonItems = [
+  {
+    title: 'Public testnet',
+    description: 'Testnet with faucet, block explorer, and documentation for early users to test transactions.'
+  },
+  {
+    title: 'CLI wallet (testnet)',
+    description: 'Command-line wallet for developers and power users to interact with the testnet.'
+  },
+  {
+    title: 'API and RPC surfaces',
+    description: 'Public API endpoints for network interaction, health status, and developer tooling.'
+  }
+];
+
+const plannedItems = [
+  {
+    title: 'Web, desktop, and mobile wallets',
+    description: 'User-friendly wallets for all platforms.'
+  },
+  {
+    title: 'Developer SDK',
+    description: 'Integration tools for builders creating Chert-powered applications.'
+  },
+  {
+    title: 'Testnet maturity',
+    description: 'Stability improvements, testing, and transparent status communications.'
+  },
+  {
+    title: 'Network launch',
+    description: 'Mainnet deployment, security audits, and ecosystem activation.'
+  }
+];
 ---
 
-<Layout title="Network Roadmap - Chert Coin" description="Explore the Chert Coin network roadmap, from website launch to mainnet and beyond. Track our progress on testnet, wallets, SDK, and community channels.">
-  <!-- Tailwind CDN (matching Chert styling) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'chert-void': '#0a0a0f',
-            'chert-obsidian': '#111118',
-            'chert-graphite': '#1a1a24',
-            'chert-slate': '#252532',
-            'chert-ash': '#3a3a4a',
-            'chert-silver': '#8a8a9a',
-            'chert-pearl': '#e8e8f0',
-            'quantum-gold': '#fbbf24',
-            'quantum-bright': '#fcd34d',
-            'silica-blue': '#3b82f6',
-            'aurora-green': '#22c55e',
-          },
-          fontFamily: {
-            display: ['Space Grotesk', 'sans-serif'],
-            body: ['Inter', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          },
-        }
-      }
-    }
-  </script>
-
-  <!-- Hero Section -->
-  <section class="relative py-20 overflow-hidden" style="background: linear-gradient(180deg, #0a0a0f 0%, #111118 100%);">
-    <!-- Animated Background -->
-    <div class="absolute inset-0 opacity-20">
-      <div class="absolute top-20 left-10 w-96 h-96 bg-quantum-gold rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
-      <div class="absolute bottom-20 right-10 w-96 h-96 bg-silica-blue rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+<Layout title="Roadmap — Chert" description="Track what is live, what is coming soon, and what is planned for the Chert network and ecosystem.">
+  <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-24">
+    <div class="absolute inset-0 bg-void">
+      <div class="absolute inset-0 grid-pattern opacity-20"></div>
+      <div class="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full bg-quantum/10 blur-[150px]"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-silica/10 blur-[120px]"></div>
     </div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 text-white">
-          Chert Coin <span class="text-quantum-gold">Network Roadmap</span>
-        </h1>
-        <p class="text-xl text-chert-pearl max-w-3xl mx-auto">
-          The journey to building the most powerful cryptocurrency. Track our progress from initial launch to ecosystem maturity.
-        </p>
-      </div>
+    <div class="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-12 py-20 text-center">
+      <span class="text-quantum font-display text-sm font-semibold tracking-widest uppercase">Roadmap</span>
+      <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-snow mt-4 mb-6">
+        What is live, what is next,
+        <span class="gradient-text">and what is planned</span>
+      </h1>
+      <p class="max-w-3xl mx-auto text-xl text-silver leading-relaxed">
+        This page separates shipped work from coming-soon priorities and longer-term plans. Timelines are flexible and phases are sequential.
+      </p>
     </div>
   </section>
 
-  <!-- Status Banner -->
-  <section class="bg-quantum-gold/10 border-b border-quantum-gold/20 py-4">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-center space-x-3">
-        <div class="bg-quantum-gold rounded-full w-2 h-2 animate-pulse"></div>
-        <p class="text-quantum-bright font-medium text-sm">
-          <strong>Active Development:</strong> Performance targets and timelines may change as we optimize the network.
-        </p>
-      </div>
-    </div>
-  </section>
+  <!-- Currently Live -->
+  <section class="py-32 bg-obsidian relative overflow-hidden" id="live">
+    <div class="absolute inset-0 grid-pattern opacity-10"></div>
 
-  <!-- Where We Are Now -->
-  <section class="py-16" style="background: linear-gradient(180deg, #111118 0%, #1a1a24 100%);">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <div class="inline-flex items-center space-x-2 bg-aurora-green/10 text-aurora-green px-4 py-2 rounded-full mb-4 border border-aurora-green/20">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-          </svg>
-          <span class="font-semibold">Currently Live</span>
+    <div class="relative max-w-[1600px] mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center space-x-2 mb-4">
+          <span class="w-2 h-2 rounded-full bg-aurora"></span>
+          <span class="text-aurora font-display text-sm font-semibold tracking-widest uppercase">Currently live</span>
         </div>
-        <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-          Where We Are Now
+        <h2 class="font-display text-3xl md:text-5xl font-bold text-snow mt-2 mb-6">
+          Where we are now
         </h2>
-        <p class="text-xl text-chert-silver max-w-3xl mx-auto">
-          The foundation is set. Explore what's available today.
+        <p class="max-w-3xl mx-auto text-silver text-lg">
+          The foundation is set. These surfaces are publicly accessible today.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Chert Website Live -->
-        <div class="bg-chert-graphite border border-aurora-green/30 rounded-xl p-6 hover:border-aurora-green/50 transition-all">
-          <div class="flex items-center space-x-3 mb-4">
-            <div class="bg-aurora-green/10 rounded-lg p-2 border border-aurora-green/20">
-              <svg class="w-5 h-5 text-aurora-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-white">Chert Coin Website</h3>
-          </div>
-          <p class="text-chert-silver text-sm mb-3">User-focused website for the Chert cryptocurrency and ecosystem.</p>
-          <a href="/" class="text-quantum-gold hover:text-quantum-bright transition-colors text-sm font-medium">Visit →</a>
-        </div>
-
-        <!-- Silica Website Live -->
-        <div class="bg-chert-graphite border border-aurora-green/30 rounded-xl p-6 hover:border-aurora-green/50 transition-all">
-          <div class="flex items-center space-x-3 mb-4">
-            <div class="bg-aurora-green/10 rounded-lg p-2 border border-aurora-green/20">
-              <svg class="w-5 h-5 text-aurora-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-white">Silica Protocol Website</h3>
-          </div>
-          <p class="text-chert-silver text-sm mb-3">Technical protocol website with architecture documentation.</p>
-          <a href="https://silica.network" class="text-quantum-gold hover:text-quantum-bright transition-colors text-sm font-medium">Visit →</a>
-        </div>
-
-        <!-- Blog & Updates -->
-        <div class="bg-chert-graphite border border-aurora-green/30 rounded-xl p-6 hover:border-aurora-green/50 transition-all">
-          <div class="flex items-center space-x-3 mb-4">
-            <div class="bg-aurora-green/10 rounded-lg p-2 border border-aurora-green/20">
-              <svg class="w-5 h-5 text-aurora-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-white">Blog & Updates</h3>
-          </div>
-          <p class="text-chert-silver text-sm mb-3">User-focused guides and cryptocurrency updates published regularly.</p>
-          <a href="/blog" class="text-quantum-gold hover:text-quantum-bright transition-colors text-sm font-medium">Read →</a>
-        </div>
-
-        <!-- GitHub Open -->
-        <div class="bg-chert-graphite border border-aurora-green/30 rounded-xl p-6 hover:border-aurora-green/50 transition-all">
-          <div class="flex items-center space-x-3 mb-4">
-            <div class="bg-aurora-green/10 rounded-lg p-2 border border-aurora-green/20">
-              <svg class="w-5 h-5 text-aurora-green" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-white">GitHub Repository</h3>
-          </div>
-          <p class="text-chert-silver text-sm mb-3">Open-source protocol code available for developers and contributors.</p>
-          <a href="https://github.com/Silica-Protocol" class="text-quantum-gold hover:text-quantum-bright transition-colors text-sm font-medium">Explore →</a>
-        </div>
-
-        <!-- Discord Community -->
-        <div class="bg-chert-graphite border border-aurora-green/30 rounded-xl p-6 hover:border-aurora-green/50 transition-all">
-          <div class="flex items-center space-x-3 mb-4">
-            <div class="bg-aurora-green/10 rounded-lg p-2 border border-aurora-green/20">
-              <svg class="w-5 h-5 text-aurora-green" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-white">Discord Community</h3>
-          </div>
-          <p class="text-chert-silver text-sm mb-3">Join the conversation with users and community members.</p>
-          <a href="https://discord.gg/silica" class="text-quantum-gold hover:text-quantum-bright transition-colors text-sm font-medium">Join →</a>
-        </div>
-
-        <!-- X/Twitter -->
-        <div class="bg-chert-graphite border border-aurora-green/30 rounded-xl p-6 hover:border-aurora-green/50 transition-all">
-          <div class="flex items-center space-x-3 mb-4">
-            <div class="bg-aurora-green/10 rounded-lg p-2 border border-aurora-green/20">
-              <svg class="w-5 h-5 text-aurora-green" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-white">X (Twitter)</h3>
-          </div>
-          <p class="text-chert-silver text-sm mb-3">Follow for announcements, updates, and community highlights.</p>
-          <a href="https://twitter.com/SilicaProtocol" class="text-quantum-gold hover:text-quantum-bright transition-colors text-sm font-medium">Follow →</a>
-        </div>
+        {liveItems.map((item) => (
+          <article class="glass rounded-2xl p-8 h-full border border-aurora/20">
+            <h3 class="font-display text-xl font-bold text-snow mb-3">{item.title}</h3>
+            <p class="text-silver leading-relaxed mb-4">{item.description}</p>
+            <a href={item.href} class="text-quantum text-sm font-display font-semibold hover:text-quantum-bright transition-colors">
+              {item.label} →
+            </a>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- What's Next -->
-  <section class="py-16 bg-chert-obsidian">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <div class="inline-flex items-center space-x-2 bg-silica-blue/10 text-silica-blue px-4 py-2 rounded-full mb-4 border border-silica-blue/20">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
-          </svg>
-          <span class="font-semibold">Coming Soon</span>
+  <!-- Coming Soon -->
+  <section class="py-32 bg-void relative overflow-hidden" id="coming-soon">
+    <div class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-silica/10 blur-[150px]"></div>
+
+    <div class="relative max-w-[1600px] mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center space-x-2 mb-4">
+          <span class="w-2 h-2 rounded-full bg-silica-bright"></span>
+          <span class="text-silica-bright font-display text-sm font-semibold tracking-widest uppercase">Coming soon</span>
         </div>
-        <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-          What's Next
+        <h2 class="font-display text-3xl md:text-5xl font-bold text-snow mt-2 mb-6">
+          What is next
         </h2>
-        <p class="text-xl text-chert-silver max-w-3xl mx-auto">
-          The immediate priorities for the network and ecosystem.
+        <p class="max-w-3xl mx-auto text-silver text-lg">
+          Immediate priorities for the network and ecosystem.
         </p>
       </div>
 
-      <div class="max-w-3xl mx-auto space-y-4">
-        <!-- Testnet -->
-        <div class="bg-chert-graphite border border-chert-ash rounded-xl p-6 hover:border-silica-blue/30 transition-all">
-          <div class="flex items-start space-x-4">
-            <div class="bg-silica-blue/10 rounded-lg p-3 flex-shrink-0 border border-silica-blue/20">
-              <svg class="w-6 h-6 text-silica-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
-              </svg>
-            </div>
-            <div class="flex-1">
-              <h3 class="text-lg font-semibold text-white mb-2">Testnet Launch</h3>
-              <p class="text-chert-silver text-sm mb-3">Public testnet with faucet, block explorer, and documentation for early users to test transactions.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-xs bg-silica-blue/10 text-silica-blue px-2 py-1 rounded border border-silica-blue/20">Network Infrastructure</span>
-                <span class="text-xs bg-silica-blue/10 text-silica-blue px-2 py-1 rounded border border-silica-blue/20">Faucet</span>
-                <span class="text-xs bg-silica-blue/10 text-silica-blue px-2 py-1 rounded border border-silica-blue/20">Explorer</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- CLI Wallet -->
-        <div class="bg-chert-graphite border border-chert-ash rounded-xl p-6 hover:border-silica-blue/30 transition-all">
-          <div class="flex items-start space-x-4">
-            <div class="bg-silica-blue/10 rounded-lg p-3 flex-shrink-0 border border-silica-blue/20">
-              <svg class="w-6 h-6 text-silica-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-              </svg>
-            </div>
-            <div class="flex-1">
-              <h3 class="text-lg font-semibold text-white mb-2">CLI Wallet (Testnet)</h3>
-              <p class="text-chert-silver text-sm mb-3">Command-line wallet for developers and power users to interact with the testnet.</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="text-xs bg-silica-blue/10 text-silica-blue px-2 py-1 rounded border border-silica-blue/20">Developer Tools</span>
-                <span class="text-xs bg-silica-blue/10 text-silica-blue px-2 py-1 rounded border border-silica-blue/20">Key Management</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="max-w-3xl mx-auto space-y-6">
+        {comingSoonItems.map((item) => (
+          <article class="glass rounded-2xl p-8 border border-silica/20">
+            <h3 class="font-display text-xl font-bold text-snow mb-3">{item.title}</h3>
+            <p class="text-silver leading-relaxed">{item.description}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Planned Phases (abbreviated for Chert - users don't need all technical details) -->
-  <section class="py-16" style="background: linear-gradient(180deg, #1a1a24 0%, #111118 100%);">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-          Planned Phases
+  <!-- Planned -->
+  <section class="py-32 bg-obsidian relative overflow-hidden" id="planned">
+    <div class="absolute inset-0 grid-pattern opacity-10"></div>
+
+    <div class="relative max-w-[1600px] mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center space-x-2 mb-4">
+          <span class="w-2 h-2 rounded-full bg-quantum"></span>
+          <span class="text-quantum font-display text-sm font-semibold tracking-widest uppercase">Planned</span>
+        </div>
+        <h2 class="font-display text-3xl md:text-5xl font-bold text-snow mt-2 mb-6">
+          The road ahead
         </h2>
-        <p class="text-xl text-chert-silver max-w-3xl mx-auto">
-          Our journey to ecosystem maturity and network launch. Phases are sequential but timelines are flexible.
+        <p class="max-w-3xl mx-auto text-silver text-lg">
+          Phases are sequential but timelines are flexible. These items represent the direction, not firm delivery dates.
         </p>
       </div>
 
-      <!-- Simplified Phase Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Wallets -->
-        <div class="bg-chert-graphite border border-chert-ash rounded-xl p-6 hover:border-quantum-gold/30 transition-all">
-          <div class="text-center">
-            <div class="inline-flex items-center justify-center w-12 h-12 bg-quantum-gold/10 rounded-lg mb-4 border border-quantum-gold/20">
-              <svg class="w-6 h-6 text-quantum-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Web, Desktop &amp; Mobile Wallets</h3>
-            <p class="text-sm text-chert-silver">User-friendly wallets for all platforms including iOS and Android.</p>
-          </div>
-        </div>
-
-        <!-- SDK -->
-        <div class="bg-chert-graphite border border-chert-ash rounded-xl p-6 hover:border-quantum-gold/30 transition-all">
-          <div class="text-center">
-            <div class="inline-flex items-center justify-center w-12 h-12 bg-quantum-gold/10 rounded-lg mb-4 border border-quantum-gold/20">
-              <svg class="w-6 h-6 text-quantum-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Developer SDK</h3>
-            <p class="text-sm text-chert-silver">Integration tools for builders creating Chert-powered applications.</p>
-          </div>
-        </div>
-
-        <!-- Testnet Maturity -->
-        <div class="bg-chert-graphite border border-chert-ash rounded-xl p-6 hover:border-quantum-gold/30 transition-all">
-          <div class="text-center">
-            <div class="inline-flex items-center justify-center w-12 h-12 bg-quantum-gold/10 rounded-lg mb-4 border border-quantum-gold/20">
-              <svg class="w-6 h-6 text-quantum-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Testnet Maturity</h3>
-            <p class="text-sm text-chert-silver">Stability improvements, testing, and transparent status communications.</p>
-          </div>
-        </div>
-
-        <!-- Network Launch -->
-        <div class="bg-gradient-to-br from-quantum-gold/20 to-silica-blue/20 border-2 border-quantum-gold/50 rounded-xl p-6">
-          <div class="text-center">
-            <div class="inline-flex items-center justify-center w-12 h-12 bg-quantum-gold/20 rounded-lg mb-4 border border-quantum-gold/40">
-              <svg class="w-6 h-6 text-quantum-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-white mb-2">Network Launch</h3>
-            <p class="text-sm text-chert-pearl">Mainnet deployment, security audits, and ecosystem activation.</p>
-          </div>
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        {plannedItems.map((item) => (
+          <article class="glass rounded-2xl p-8 h-full">
+            <h3 class="font-display text-xl font-bold text-snow mb-3">{item.title}</h3>
+            <p class="text-silver leading-relaxed">{item.description}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-20 relative overflow-hidden" style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);">
-    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-display font-bold text-chert-void mb-6">
-        Join the Chert Community
+  <!-- CTA -->
+  <section class="py-32 bg-void relative overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-quantum/10 via-silica/10 to-nebula/10 blur-[150px] rounded-full"></div>
+    </div>
+
+    <div class="relative max-w-4xl mx-auto px-6 lg:px-12 text-center">
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-snow mb-6">
+        Want more detail on protocol progress?
       </h2>
-      <p class="text-xl text-chert-obsidian mb-8">
-        Be part of the future of currency. Follow our progress and get involved.
+      <p class="text-xl text-silver leading-relaxed mb-12">
+        The protocol-level roadmap, including architecture milestones and subsystem status, lives on the Silica Protocol site.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://discord.gg/silica" class="bg-chert-void text-white font-semibold py-3 px-8 rounded-lg hover:bg-chert-obsidian transition-colors inline-flex items-center justify-center space-x-2">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/>
-          </svg>
-          <span>Join Discord</span>
-        </a>
-        <a href="https://github.com/Silica-Protocol" class="bg-chert-void/20 text-chert-void border-2 border-chert-void font-semibold py-3 px-8 rounded-lg hover:bg-chert-void hover:text-white transition-colors inline-flex items-center justify-center space-x-2">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
-          <span>View on GitHub</span>
-        </a>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://silicaprotocol.network" class="btn-quantum btn-premium">Silica Protocol</a>
+        <a href="https://github.com/Silica-Protocol" class="btn-ghost btn-premium">GitHub</a>
       </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  .glass {
+    background: rgba(26, 26, 36, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .grid-pattern {
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b, #3b82f6, #8b5cf6, #fbbf24);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 8s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .btn-premium {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-quantum {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+    color: #0a0a0f;
+  }
+
+  .btn-quantum:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(251, 191, 36, 0.4);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: #e8e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+  }
+</style>
