@@ -77,13 +77,13 @@ import Layout from '../layouts/Layout.astro';
 
         <!-- CTA Buttons -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up" style="animation-delay: 0.6s;">
-          <a href="/launch" class="btn-quantum btn-premium group">
+          <a href="https://wallet.silica.io" class="btn-quantum btn-premium group">
             <span>Launch App</span>
             <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
             </svg>
           </a>
-          <a href="/docs" class="btn-ghost btn-premium">
+          <a href="https://silica.network/developers" class="btn-ghost btn-premium">
             Documentation
           </a>
         </div>
@@ -136,9 +136,9 @@ import Layout from '../layouts/Layout.astro';
           Your Transaction,
           <span class="gradient-text">in Under One Second</span>
         </h2>
-        <p class="max-w-2xl mx-auto text-silver text-lg">
+          <p class="max-w-2xl mx-auto text-silver text-lg">
           Hit send → see <span class="text-snow">pending</span> almost instantly → watch it apply to your account → then get cryptographic permanence.
-          Under the hood, Chert moves your transaction through Alluvium, Crystallite, Stalation, and Lithification.
+          Under the hood, Chert moves your transaction through Alluvium, Tephra, Crystallite, Lithification, and Cali.
         </p>
       </div>
 
@@ -191,7 +191,7 @@ import Layout from '../layouts/Layout.astro';
             </div>
           </div>
 
-          <!-- Crystallite (Ordering & Consensus) -->
+          <!-- Tephra (Ordering & Consensus) -->
           <div class="group">
             <div class="glass rounded-2xl p-8 h-full transition-all duration-500 hover:border-quantum/30 hover:shadow-[0_0_60px_rgba(251,191,36,0.15)]">
               <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-quantum to-quantum-glow flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -199,12 +199,12 @@ import Layout from '../layouts/Layout.astro';
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                 </svg>
               </div>
-              <h3 class="font-display text-2xl font-bold text-snow mb-2">Crystallite</h3>
+              <h3 class="font-display text-2xl font-bold text-snow mb-2">Tephra</h3>
               <p class="text-sm text-quantum mb-4 font-mono uppercase tracking-wider">Ordering & Consensus</p>
               <p class="text-silver leading-relaxed mb-6">
-                Crystallite sorts and commits Alluvium batches into a shared history—often in <span class="text-snow">&lt; 300ms</span>.
+                Tephra sorts and commits Alluvium payloads into a shared history—often in <span class="text-snow">&lt; 300ms</span>.
                 That commit point is what wallets use to show your transfer as <span class="text-snow">pending</span> right away.
-                Then Stalation executes the ordered results so balances and state updates hit your account fast.
+                Then Crystallite applies the ordered results so balances and state updates hit your account fast.
               </p>
               <ul class="space-y-3 text-sm text-silver">
                 <li class="flex items-center">
@@ -231,7 +231,7 @@ import Layout from '../layouts/Layout.astro';
             </div>
           </div>
 
-          <!-- Lithification (Finality) -->
+          <!-- Lithification (Proofs & Checkpoints) -->
           <div class="group">
             <div class="glass rounded-2xl p-8 h-full transition-all duration-500 hover:border-nebula/30 hover:shadow-[0_0_60px_rgba(168,85,247,0.15)]">
               <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-nebula to-nebula-bright flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -240,23 +240,23 @@ import Layout from '../layouts/Layout.astro';
                 </svg>
               </div>
                <h3 class="font-display text-2xl font-bold text-snow mb-2">Lithification</h3>
-               <p class="text-sm text-nebula-bright mb-4 font-mono uppercase tracking-wider">Finality</p>
+               <p class="text-sm text-nebula-bright mb-4 font-mono uppercase tracking-wider">Proofs & Checkpoints</p>
               <p class="text-silver leading-relaxed mb-6">
-                 Lithification is the point of no return.
-                 An <span class="text-snow">aBFT committee</span> finalizes the network state so your transaction becomes permanent—typically <span class="text-snow">under 1s</span> end-to-end.
+                  Lithification packages finalized state into anchors, receipts, and checkpoints.
+                  Once Crystallite has applied Tephra order, Lithification makes the result portable, auditable, and sync-friendly—typically <span class="text-snow">under 1s</span> end-to-end.
               </p>
               <ul class="space-y-3 text-sm text-silver">
                 <li class="flex items-center">
                   <span class="w-1.5 h-1.5 rounded-full bg-nebula mr-3"></span>
-                  aBFT committee finality
+                  Proofs and anchor checkpoints
                 </li>
                 <li class="flex items-center">
                   <span class="w-1.5 h-1.5 rounded-full bg-nebula mr-3"></span>
-                  Predictable under latency
+                  Replay and fast-sync boundaries
                 </li>
                 <li class="flex items-center">
                   <span class="w-1.5 h-1.5 rounded-full bg-nebula mr-3"></span>
-                  Post-quantum proofs
+                  Post-quantum certificates
                 </li>
               </ul>
             </div>
@@ -447,7 +447,7 @@ import Layout from '../layouts/Layout.astro';
             </div>
           </div>
 
-          <a href="/mining" class="btn-quantum btn-premium inline-flex">
+          <a href="/blog/mining-that-matters" class="btn-quantum btn-premium inline-flex">
             Start Contributing
           </a>
         </div>
@@ -614,7 +614,7 @@ import Layout from '../layouts/Layout.astro';
 
       <!-- Developer Resources -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="/docs" class="group glass rounded-2xl p-8 hover:border-silica/30 transition-all duration-300">
+        <a href="https://silica.network/developers" class="group glass rounded-2xl p-8 hover:border-silica/30 transition-all duration-300">
           <div class="flex items-center justify-between mb-6">
             <div class="w-12 h-12 rounded-xl bg-silica/20 flex items-center justify-center">
               <svg class="w-6 h-6 text-silica-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -629,7 +629,7 @@ import Layout from '../layouts/Layout.astro';
           <p class="text-silver text-sm">Comprehensive guides, tutorials, and API references to get you started.</p>
         </a>
 
-        <a href="https://github.com/chertcoin" class="group glass rounded-2xl p-8 hover:border-quantum/30 transition-all duration-300">
+        <a href="https://github.com/Silica-Protocol" class="group glass rounded-2xl p-8 hover:border-quantum/30 transition-all duration-300">
           <div class="flex items-center justify-between mb-6">
             <div class="w-12 h-12 rounded-xl bg-quantum/20 flex items-center justify-center">
               <svg class="w-6 h-6 text-quantum" fill="currentColor" viewBox="0 0 24 24">
@@ -644,7 +644,7 @@ import Layout from '../layouts/Layout.astro';
           <p class="text-silver text-sm">All open-source. Fork it, build on it, contribute to it.</p>
         </a>
 
-        <a href="/faucet" class="group glass rounded-2xl p-8 hover:border-aurora/30 transition-all duration-300">
+        <a href="/roadmap" class="group glass rounded-2xl p-8 hover:border-aurora/30 transition-all duration-300">
           <div class="flex items-center justify-between mb-6">
             <div class="w-12 h-12 rounded-xl bg-aurora/20 flex items-center justify-center">
               <svg class="w-6 h-6 text-aurora" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -655,8 +655,8 @@ import Layout from '../layouts/Layout.astro';
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
           </div>
-          <h3 class="font-display text-xl font-bold text-snow mb-2">Testnet Faucet</h3>
-          <p class="text-silver text-sm">Get testnet tokens to experiment and build your applications.</p>
+          <h3 class="font-display text-xl font-bold text-snow mb-2">Testnet Access</h3>
+          <p class="text-silver text-sm">Follow the roadmap for faucet, explorer, wallet, and testnet rollout details.</p>
         </a>
       </div>
     </div>
@@ -679,11 +679,11 @@ import Layout from '../layouts/Layout.astro';
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="/launch" class="btn-quantum btn-premium text-lg px-12 py-4">
+        <a href="https://wallet.silica.io" class="btn-quantum btn-premium text-lg px-12 py-4">
           Launch App
         </a>
-        <a href="/wallet" class="btn-ghost btn-premium text-lg px-12 py-4">
-          Get Wallet
+        <a href="/ecosystem" class="btn-ghost btn-premium text-lg px-12 py-4">
+          Explore Ecosystem
         </a>
       </div>
     </div>

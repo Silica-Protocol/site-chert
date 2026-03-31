@@ -16,9 +16,9 @@ const frontmatter = {
     Most blockchains make you wait. Silica doesn't. Here's how we achieve sub-second finality and million TPS throughput.
   </p>
 
-  <h2>Alluvium: Data Availability & Batching</h2>
+  <h2>Alluvium: Data Plane</h2>
   <p>
-    Silica separates <strong>data dissemination</strong> from <strong>ordering</strong>. Alluvium provides data availability without imposing a global order:
+    Silica starts with <strong>Alluvium</strong>, the Narwhal-inspired data plane for transaction batching and dissemination:
   </p>
   <ul>
     <li><strong>High-throughput batching:</strong> Nodes create micro-batches of transactions (50-200 per second) and broadcast them as DAG vertices.</li>
@@ -27,9 +27,9 @@ const frontmatter = {
   </ul>
   <p>Result: the network is always accumulating transactions, not waiting for one block to finish before the next begins.</p>
 
-  <h2>Crystallite: Ordering &amp; Consensus</h2>
+  <h2>Tephra: Ordering &amp; Consensus</h2>
   <p>
-    Once batches are widely available, Crystallite applies deterministic commit rules to produce a <strong>canonical global ordering</strong>.
+    Once payloads are flowing through Alluvium, <strong>Tephra</strong> applies gossip-about-gossip consensus to produce a <strong>canonical global ordering</strong>.
     This is the network's ordering source of truth.
   </p>
   <ul>
@@ -44,21 +44,43 @@ const frontmatter = {
       <li><strong>T+0ms:</strong> Tx hits a Gateway node</li>
       <li><strong>T+50ms:</strong> Included in a micro-batch</li>
       <li><strong>T+150ms:</strong> Batch propagated, erasure-coded</li>
-      <li><strong>T+400ms:</strong> Crystallite produces a committed ordering</li>
-      <li><strong>T+500ms:</strong> The Striation executes in parallel lanes (Striae)</li>
+      <li><strong>T+400ms:</strong> Tephra produces a committed ordering</li>
+      <li><strong>T+500ms:</strong> Crystallite applies the result in deterministic execution lanes</li>
+      <li><strong>T+800ms:</strong> Lithification packages proofs and checkpoints</li>
     </ul>
-    <p><strong>Total:</strong> &lt;500ms from send to lithified finality. No confirmations to babysit.</p>
+    <p><strong>Total:</strong> typically under 1s from send to finalized, checkpointed state. No confirmations to babysit.</p>
   </div>
 
-  <h2>Lithification: Finality</h2>
+  <h2>Crystallite: Execution &amp; Apply</h2>
   <p>
-    Finality is the irreversible commitment of state once the committed ordering is applied.
-    Lithification is the point of no return.
+    After Tephra orders the transaction stream, <strong>Crystallite</strong> applies that order in deterministic execution lanes.
+    This is where pending becomes visible account state.
   </p>
   <ul>
-    <li><strong>Irreversible commitment:</strong> Once lithified, transactions do not roll back or reorg.</li>
-    <li><strong>Timing-independent safety:</strong> Safety does not depend on synchronized clocks or fixed timeout schedules.</li>
-    <li><strong>Recovery-friendly:</strong> Finality certificates and anchors make recovery and monitoring straightforward.</li>
+    <li><strong>Deterministic lanes:</strong> Non-conflicting work executes in parallel without changing Tephra order.</li>
+    <li><strong>Fast account updates:</strong> Balance and state changes become visible quickly.</li>
+    <li><strong>No invented ordering:</strong> Crystallite applies Tephra order rather than creating its own.</li>
+  </ul>
+
+  <h2>Lithification: Proofs &amp; Checkpoints</h2>
+  <p>
+    Lithification packages finalized state into anchors, receipts, and replay-friendly checkpoints.
+    It is the proof and checkpoint surface around the finalized chain.
+  </p>
+  <ul>
+    <li><strong>Checkpoint packaging:</strong> Anchors and certificates make finalized state portable and auditable.</li>
+    <li><strong>Proof surfaces:</strong> Receipts and certificates report the result without becoming new ordering authorities.</li>
+    <li><strong>Recovery-friendly:</strong> Checkpoints make monitoring and restart flows straightforward.</li>
+  </ul>
+
+  <h2>Cali: Recovery &amp; Watchdogs</h2>
+  <p>
+    <strong>Cali</strong> watches network health, detects stalls, and helps restart progress cleanly when conditions degrade.
+  </p>
+  <ul>
+    <li><strong>Health monitoring:</strong> Tracks liveness, divergence, and node readiness.</li>
+    <li><strong>Automated recovery:</strong> Helps the network recover without human babysitting.</li>
+    <li><strong>Operational safety:</strong> Keeps the stack resilient under churn and partitions.</li>
   </ul>
 
 

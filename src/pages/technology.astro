@@ -3,7 +3,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Technology — CHERT" description="Deep dive into Chert's revolutionary consensus architecture, post-quantum security, and Network Utility Work system.">
+<Layout title="Technology — CHERT" description="Deep dive into Chert's layered architecture: Alluvium, Tephra, Crystallite, Lithification, and Cali.">
   
   <!-- Hero Section -->
   <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-24">
@@ -21,7 +21,7 @@ import Layout from '../layouts/Layout.astro';
         <span class="gradient-text">Impossibility</span>
       </h1>
       <p class="max-w-3xl mx-auto text-xl text-silver leading-relaxed">
-        Three-layer consensus. Post-quantum cryptography. Meaningful computation.
+        Five branded layers. Post-quantum cryptography. Meaningful computation.
         Every component engineered for the future.
       </p>
     </div>
@@ -36,7 +36,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="text-center mb-20">
         <span class="text-silica-bright font-display text-sm font-semibold tracking-widest uppercase">Consensus Architecture</span>
         <h2 class="font-display text-3xl md:text-5xl font-bold text-snow mt-4 mb-6">
-          Alluvium + Crystallite + Lithification
+          Alluvium + Tephra + Crystallite + Lithification + Cali
         </h2>
         <p class="max-w-2xl mx-auto text-silver text-lg">
           When you hit send, you should see your transaction immediately, watch it apply to your account, and know exactly when it becomes permanent.
@@ -54,13 +54,13 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <div>
                 <h3 class="font-display text-2xl font-bold text-snow">Alluvium</h3>
-                <p class="text-silica-bright text-sm font-mono">DATA AVAILABILITY LAYER</p>
+                <p class="text-silica-bright text-sm font-mono">DATA PLANE</p>
               </div>
             </div>
             
             <p class="text-silver leading-relaxed mb-6">
                Your transactions are collected into micro-batches and rapidly propagated across the network.
-               Alluvium focuses on <span class="text-snow">getting your data everywhere fast</span> (data availability) so the next layers can order and finalize it without slowing you down.
+               Alluvium is the Narwhal-inspired data plane focused on <span class="text-snow">getting your data everywhere fast</span> so the next layers can order, apply, and checkpoint it without slowing you down.
             </p>
 
             <div class="space-y-4">
@@ -122,7 +122,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
 
-       <!-- Layer 2: Crystallite -->
+      <!-- Layer 2: Tephra -->
        <div class="mb-16">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <!-- Visual -->
@@ -167,13 +167,13 @@ import Layout from '../layouts/Layout.astro';
                 <span class="font-display font-bold text-void text-lg">2</span>
               </div>
               <div>
-                <h3 class="font-display text-2xl font-bold text-snow">Crystallite</h3>
+                <h3 class="font-display text-2xl font-bold text-snow">Tephra</h3>
                 <p class="text-quantum text-sm font-mono">ORDERING LAYER</p>
               </div>
             </div>
             
             <p class="text-silver leading-relaxed mb-6">
-               Crystallite turns network-wide batches into a single, shared history.
+               Tephra turns network-wide batches into a single, shared history.
                It <span class="text-snow">sorts and commits batches to the DAG</span> quickly (often <span class="text-snow">&lt; 300ms</span>), which is what enables near-instant <span class="text-snow">pending</span> transactions.
             </p>
 
@@ -195,7 +195,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
        </div>
 
-       <!-- Execution: Stalation -->
+      <!-- Layer 3: Crystallite -->
        <div class="mb-24">
          <div class="glass rounded-2xl p-8 lg:p-10">
            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
@@ -205,13 +205,13 @@ import Layout from '../layouts/Layout.astro';
                    <span class="font-display font-bold text-void text-lg">+</span>
                  </div>
                  <div>
-                   <h3 class="font-display text-2xl font-bold text-snow">Stalation</h3>
-                   <p class="text-silver text-sm font-mono">EXECUTION PIPELINE</p>
+                   <h3 class="font-display text-2xl font-bold text-snow">Crystallite</h3>
+                   <p class="text-silver text-sm font-mono">EXECUTION / APPLY</p>
                  </div>
                </div>
 
                <p class="text-silver leading-relaxed">
-                 After your transaction is ordered, it flows through Stalation—Chert’s deterministic execution pipeline—so results apply cleanly to your account.
+                 After your transaction is ordered, it flows through Crystallite—Chert’s deterministic execution/apply layer—so results apply cleanly to your account.
                  This is what turns “pending” into visible balance and state updates for transfers <span class="text-snow">in and out</span> of your wallet.
                </p>
              </div>
@@ -220,7 +220,7 @@ import Layout from '../layouts/Layout.astro';
                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                  <div class="glass-light rounded-lg p-4">
                    <h4 class="font-display font-semibold text-snow mb-2">Parallel Lanes</h4>
-                   <p class="text-silver text-sm">Independent lanes (striae) execute safely in parallel for speed.</p>
+                   <p class="text-silver text-sm">Independent lanes execute safely in parallel for speed.</p>
                  </div>
                  <div class="glass-light rounded-lg p-4">
                    <h4 class="font-display font-semibold text-snow mb-2">Deterministic Results</h4>
@@ -236,7 +236,7 @@ import Layout from '../layouts/Layout.astro';
          </div>
        </div>
 
-        <!-- Layer 3: Lithification -->
+        <!-- Layer 4: Lithification -->
       <div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -246,23 +246,23 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <div>
                  <h3 class="font-display text-2xl font-bold text-snow">Lithification</h3>
-                <p class="text-nebula-bright text-sm font-mono">FINALITY LAYER</p>
+                <p class="text-nebula-bright text-sm font-mono">PROOFS / CHECKPOINTS</p>
               </div>
             </div>
             
             <p class="text-silver leading-relaxed mb-6">
-               Lithification makes your transaction permanent.
-               An <span class="text-snow">aBFT committee</span> attests to the committed ordering and seals the resulting state—so once it’s lithified, it’s final: <span class="text-snow">no reorgs, no rollbacks</span>.
+               Lithification packages the finalized result into anchors, certificates, and sync-friendly checkpoints.
+               Once Crystallite has applied Tephra order, Lithification turns the result into portable proof surfaces: <span class="text-snow">auditable, replayable, and permanent</span>.
             </p>
 
             <div class="space-y-4">
                <div class="glass-light rounded-lg p-4">
-                 <h4 class="font-display font-semibold text-snow mb-2">Committee Finality</h4>
-                 <p class="text-silver text-sm">A 2/3+ aBFT committee finalizes your transaction into permanence, even if up to 1/3 of validators are malicious.</p>
+                 <h4 class="font-display font-semibold text-snow mb-2">Proof Packaging</h4>
+                 <p class="text-silver text-sm">Anchors and certificates package finalized state into proof surfaces for wallets, explorers, and recovery.</p>
                </div>
                <div class="glass-light rounded-lg p-4">
-                 <h4 class="font-display font-semibold text-snow mb-2">Predictable Under Stress</h4>
-                 <p class="text-silver text-sm">aBFT safety doesn’t depend on “good network timing”, so your funds don’t hinge on luck or latency spikes.</p>
+                 <h4 class="font-display font-semibold text-snow mb-2">Checkpoint Boundaries</h4>
+                 <p class="text-silver text-sm">Lineations and related checkpoints make replay, pruning, and fast sync safer and simpler.</p>
                </div>
                <div class="glass-light rounded-lg p-4">
                  <h4 class="font-display font-semibold text-snow mb-2">Post-Quantum Proofs</h4>
@@ -280,11 +280,51 @@ import Layout from '../layouts/Layout.astro';
                 </svg>
               </div>
                <h4 class="font-display text-xl font-bold text-snow mb-2">From Pending to Permanent</h4>
-               <p class="text-silver">Typically ~0.5s to show as pending, and <span class="text-snow">in/out</span> transfers applied and finalized in under 1s.</p>
+                 <p class="text-silver">Typically ~0.5s to show as pending, with ordered, applied, and checkpointed transfers finalized in under 1s.</p>
                <div class="mt-6 pt-6 border-t border-white/10">
                  <div class="text-4xl font-display font-bold text-nebula-bright">&lt; 1s</div>
                  <div class="text-silver text-sm">Typical end-to-end finality</div>
                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layer 5: Cali -->
+      <div class="mt-24">
+        <div class="glass rounded-2xl p-8 lg:p-10">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
+            <div class="lg:col-span-1">
+              <div class="inline-flex items-center space-x-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-amber-500 flex items-center justify-center">
+                  <span class="font-display font-bold text-void text-lg">5</span>
+                </div>
+                <div>
+                  <h3 class="font-display text-2xl font-bold text-snow">Cali</h3>
+                  <p class="text-amber-300 text-sm font-mono">MONITORING / RECOVERY</p>
+                </div>
+              </div>
+
+              <p class="text-silver leading-relaxed">
+                Cali is the watchdog around the stack. It tracks health, observes finalized checkpoints, and helps the network recover cleanly when liveness degrades.
+              </p>
+            </div>
+
+            <div class="lg:col-span-2">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="glass-light rounded-lg p-4">
+                  <h4 class="font-display font-semibold text-snow mb-2">Health Signals</h4>
+                  <p class="text-silver text-sm">Peer readiness, liveness, and progress tracking across the stack.</p>
+                </div>
+                <div class="glass-light rounded-lg p-4">
+                  <h4 class="font-display font-semibold text-snow mb-2">Recovery Hooks</h4>
+                  <p class="text-silver text-sm">Restart and catch-up flows use checkpoints to restore clean progress.</p>
+                </div>
+                <div class="glass-light rounded-lg p-4">
+                  <h4 class="font-display font-semibold text-snow mb-2">Operational Safety</h4>
+                  <p class="text-silver text-sm">The network stays observable and recoverable under churn, latency, or partial partitions.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -362,10 +402,10 @@ import Layout from '../layouts/Layout.astro';
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="/developers" class="btn-quantum btn-premium">
+        <a href="https://silica.network/developers" class="btn-quantum btn-premium">
           Developer Docs
         </a>
-        <a href="https://github.com/chertcoin" class="btn-ghost btn-premium">
+        <a href="https://github.com/Silica-Protocol" class="btn-ghost btn-premium">
           View Source
         </a>
       </div>

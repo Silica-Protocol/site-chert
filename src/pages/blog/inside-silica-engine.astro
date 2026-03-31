@@ -3,7 +3,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
 
 const frontmatter = {
   title: 'Inside the Silica Engine',
-  description: 'How the network achieves lithified finality and massive scale. A technical look at Alluvium batching, Crystallite ordering, and the Striation execution pipeline.',
+  description: 'How the network achieves massive scale through Alluvium batching, Tephra ordering, Crystallite execution, Lithification proofs, and Cali recovery.',
   author: 'Silica Network Team',
   date: 'December 4, 2024',
   category: 'Technology',
@@ -16,7 +16,7 @@ const frontmatter = {
     Silica isn't just fast—it's architecturally different. Here's a technical deep-dive into the engine that powers sub-second finality.
   </p>
 
-  <h2>The Three-Layer Architecture</h2>
+  <h2>The Layered Architecture</h2>
   <p>
     Silica separates concerns into distinct layers:
   </p>
@@ -24,15 +24,23 @@ const frontmatter = {
   <div class="benefits-grid">
     <div class="benefit-card">
       <h3>Alluvium</h3>
-      <p>Data availability &amp; batching — high-throughput transaction dissemination (unordered)</p>
+      <p>Data plane — high-throughput transaction batching and dissemination</p>
+    </div>
+    <div class="benefit-card">
+      <h3>Tephra</h3>
+      <p>Ordering &amp; consensus — gossip-about-gossip and virtual voting produce canonical order</p>
     </div>
     <div class="benefit-card">
       <h3>Crystallite</h3>
-      <p>Ordering &amp; consensus — deterministic commit rules produce canonical ordering</p>
+      <p>Execution / apply — deterministic state transitions across parallel lanes</p>
     </div>
     <div class="benefit-card">
-      <h3>The Striation</h3>
-      <p>Parallel execution framework — deterministic state transitions across Striae</p>
+      <h3>Lithification</h3>
+      <p>Proofs / checkpoints — anchors, receipts, and finalized surfaces</p>
+    </div>
+    <div class="benefit-card">
+      <h3>Cali</h3>
+      <p>Monitoring / recovery — watchdogs, restart tooling, and health signals</p>
     </div>
   </div>
 
@@ -59,9 +67,9 @@ const frontmatter = {
     <li><strong>Causal ordering:</strong> DAG structure naturally captures happened-before relationships</li>
   </ul>
 
-  <h2>Crystallite: Ordering &amp; Consensus</h2>
+  <h2>Tephra: Ordering &amp; Consensus</h2>
   <p>
-    Once batches are widely available, Crystallite commits a canonical global ordering:
+    Once batches are widely available, Tephra commits a canonical global ordering:
   </p>
 
   <div class="tech-details">
@@ -81,9 +89,9 @@ fn commit(dag: &amp;Dag) -&gt; Vec&lt;CommittedSubDag&gt; {'{'}
     <li><strong>Byzantine-resilient:</strong> Safety holds under adversarial behavior; liveness resumes when the network can make progress</li>
   </ul>
 
-  <h2>The Striation: Deterministic Execution</h2>
+  <h2>Crystallite: Deterministic Execution</h2>
   <p>
-    After ordering, The Striation executes transactions across parallel lanes (Striae):
+    After ordering, Crystallite executes transactions across parallel lanes:
   </p>
   <ul>
     <li><strong>WASM runtime:</strong> Sandboxed, metered execution of smart contracts</li>
@@ -101,15 +109,25 @@ fn commit(dag: &amp;Dag) -&gt; Vec&lt;CommittedSubDag&gt; {'{'}
     <p>Dependency analysis enables safe parallel execution without conflicts.</p>
   </div>
 
-  <h2>Lithification: Finality</h2>
+  <h2>Lithification: Proofs &amp; Checkpoints</h2>
   <p>
-    Lithification is the irreversible commitment of state once the committed ordering is applied.
-    It converts an ordered history into an immutable ledger.
+    Lithification packages the applied result into anchors, certificates, and replay-friendly checkpoints.
+    It converts finalized state into portable proof surfaces.
   </p>
   <ul>
-    <li><strong>Irreversible state:</strong> Once lithified, history is not rolled back or reorganized</li>
     <li><strong>Certificates as proofs:</strong> Finality certificates are cryptographic proofs for monitoring and auditing, not gates</li>
-    <li><strong>Recovery support:</strong> Lineations provide checkpoint anchors for fast sync and safe pruning</li>
+    <li><strong>Checkpoint anchors:</strong> Lineations provide replay and sync boundaries</li>
+    <li><strong>Recovery support:</strong> Finalized checkpoints simplify pruning, bootstrap, and restart flows</li>
+  </ul>
+
+  <h2>Cali: Monitoring &amp; Recovery</h2>
+  <p>
+    Cali watches the finalized chain, tracks liveness, and helps the network recover cleanly when conditions deteriorate.
+  </p>
+  <ul>
+    <li><strong>Health tracking:</strong> Detects stalls, divergence, and degraded peers</li>
+    <li><strong>Watchdog behavior:</strong> Supports operator visibility and automated responses</li>
+    <li><strong>Restart safety:</strong> Uses anchors and checkpoints to keep recovery clean</li>
   </ul>
 
   <h2>Lineations: Periodic Anchors</h2>
